@@ -1,0 +1,203 @@
+/* =======================
+   ------- Task 17 -------
+   ======================= */
+
+$sprite:  'http://maiordom.github.io/images/css-live/task17.sprite.png';
+$body_bg: 'http://maiordom.github.io/images/css-live/task17.bg.png';
+
+HTML, BODY {
+  width: 100%;
+  height: 100%;
+  }
+
+BODY {
+  background: url( $body_bg ) repeat;
+  }
+
+@mixin border-radius( $radius ) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+  }
+
+@mixin linear-gradient( $topColor, $bottomColor ) {
+  background: $topColor; /* Old browsers */
+  background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, $topColor ), color-stop( 100%, $bottomColor ) ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient( top, $topColor 0%, $bottomColor 100% ); /* Chrome10+,Safari5.1+ */
+  background: -moz-linear-gradient( top, $topColor 0%, $bottomColor 100% ); /* FF3.6+ */
+  background: -o-linear-gradient( top, $topColor 0%, $bottomColor 100% ); /* Opera 11.10+ */
+  background: -ms-linear-gradient( top, $topColor 0%, $bottomColor 100% ); /* IE10+ */
+  background: linear-gradient( to bottom, $topColor 0%, $bottomColor 100% ); /* W3C */
+  }
+
+@mixin box-shadow( $value... ) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  -o-box-shadow: $value;
+  -ms-box-shadow: $value;
+  box-shadow: $value;
+  }
+
+.wrapper {
+  padding: 100px 0 0 100px;
+  }
+
+/* ------- Nav -------
+   =================== */
+
+.nav {
+  display: inline-block;
+  font: 13px Tahoma, sans-serif;
+  line-height: 40px;
+  border: 1px solid #25272b;
+  overflow: hidden;
+  @include border-radius( 4px );
+  @include box-shadow( 0 1px 2px 0 rgba( 0, 0, 0, .3 ), 0 -1px 0 rgba( 26, 26, 26, .15 ) );
+  }
+
+.nav-item {
+  position: relative;
+  min-width: 198px;
+  border-top: 1px solid #292b30;
+  }
+
+.nav-item:first-child {
+  border-top: none;
+  }
+
+.nav-item:first-child .nav-link {
+  @include border-radius( 4px 4px 0 0 );
+  }
+
+.nav-item:last-child .nav-link {
+  @include border-radius( 0 0 4px 4px );
+  }
+
+.nav-link {
+  display: block;
+  color: #d9ddea;
+  text-shadow: 1px 1px #33353b;
+  text-decoration: none;
+  padding-left: 40px;
+  }
+
+.nav-item > .nav-link {
+  @include linear-gradient( #4c4e58, #3f424a );
+  @include box-shadow( inset 1px 1px 0 0 #5e6169 );
+  }
+
+.nav-link:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  left: 11px;
+  top: 12px;
+  background: url( $sprite ) no-repeat;
+  }
+
+.nav-notify {
+  float: right;
+  position: relative;
+  margin-right: 25px;
+  }
+
+.nav-notify:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  right: -10px;
+  margin-top: -2px;
+  border: 1px solid #2c2b30;
+  @include linear-gradient( #f49595, #ea3636 );
+  @include border-radius( 5px );
+  @include box-shadow( 0 0 2px rgba( 255, 0, 0, 0.2 ) );
+  }
+
+.nav-item-has-sub > .nav-link:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 11px;
+  height: 6px;
+  top: 18px;
+  right: 13px;
+  background: url( $sprite ) 0 -72px no-repeat;
+  }
+
+.nav-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 0 11px;
+  width: 18px;
+  height: 18px;
+  background: url( $sprite ) no-repeat;
+  margin-top: -2px;
+  }
+
+.nav-item:hover .nav-icon_home:before    { background-position: -18px 0; }
+.nav-item:hover .nav-icon_gallery:before { background-position: -18px -18px; }
+.nav-item:hover .nav-icon_logout:before  { background-position: -18px -36px; }
+
+.nav-icon_home:before    { background-position: 0 0; }
+.nav-icon_gallery:before { background-position: 0 -18px; }
+.nav-icon_logout:before  { background-position: 0 -36px; }
+.nav-icon_sub:before     { background-position: 0 -54px; }
+
+/* End | Nav */
+
+/* ------- Sub Nav -------
+   ======================= */
+
+.subnav {
+  overflow: hidden;
+  height: 0;
+  -webkit-transition: height 0.25s linear;
+  -moz-transition: height 0.25s linear;
+  -ms-transition: height 0.25s linear;
+  -o-transition: height 0.25s linear;
+  transition: height 0.25s linear;
+  }
+
+.subnav:hover,
+.nav-link:hover ~ .subnav-3-items {
+  height: 123px;
+  }
+
+.subnav-item {
+  position: relative;
+  border-top: 1px solid #292b30;
+  }
+
+.subnav-link {
+  @include linear-gradient( #35373d, #313339 );
+  @include box-shadow( inset 0 1px 0 0 #3a3c42 );
+  }
+
+.subnav-item:first-child .subnav-link {
+  @include box-shadow( inset 0 2px 1px -1px rgba( 34, 34, 34, 0.25 ) );
+  }
+
+.subnav-item:last-child .subnav-link {
+  @include box-shadow( inset 0 -2px 1px -1px rgba( 34, 34, 34, 0.3 ), inset 0 2px 1px -2px rgba( 255, 255, 255, 0.25 ) );
+  }
+
+.subnav-link:hover {
+  @include linear-gradient( #3a60d1, #2b48c1 );
+  @include box-shadow( inset 1px 1px 0 0 #5072d4 );
+  text-shadow: 1px 1px #253d95;
+  }
+
+.subnav-link:hover.nav-icon_sub:before {
+  background-position: -18px -54px;
+  }
+
+/* End | Sub Nav */
+
+/* End | Task 17 */
