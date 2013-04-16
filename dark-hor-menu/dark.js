@@ -16,6 +16,7 @@ $(function() {
                 active && active.removeClass( actCls );
                 active = item.addClass( actCls );
             }
+            return false;
         });
     }
 });
