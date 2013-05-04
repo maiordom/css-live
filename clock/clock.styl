@@ -1,5 +1,10 @@
 @import 'nib'
 
+paneDuration   = .5s * 1
+paneDelay      = .5s * 1
+shadowDuration = .5s * 1
+shadowDelay    = .3s * 1
+
 HTML, BODY
     width: 100%
     height: 100%
@@ -140,7 +145,7 @@ body
     z-index: 3
 
 #flipclock .active
-    animation: flip-ani-index .5s .5s linear both
+    animation: flip-ani-index paneDuration paneDelay linear both
     z-index: 2
 
 @keyframes flip-ani-index
@@ -155,7 +160,7 @@ body
 
 #flipclock .active .flip-down
     z-index: 2
-    animation: flip-ani-up .5s .5s linear both
+    animation: flip-ani-up paneDuration paneDelay linear both
 
 @keyframes flip-ani-up
     0%
@@ -172,7 +177,7 @@ body
 
 #flipclock .before .flip-up
     z-index: 2
-    animation: flip-ani-down .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both
+    animation: flip-ani-down paneDuration cubic-bezier(0.470, 0.000, 0.745, 0.715) both
 
 @keyframes flip-ani-down
     0%
@@ -187,19 +192,19 @@ body
 
 #flipclock .before .flip-up .flip-shadow
     background: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)
-    animation: show .5s linear both
+    animation: show shadowDuration linear both
 
 #flipclock .before .flip-down .flip-shadow
     background: linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)
-    animation: show .5s linear both
+    animation: show shadowDuration linear both
 
 #flipclock .active .flip-up .flip-shadow
     background: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)
-    animation: hide .5s .3s linear both
+    animation: hide shadowDuration shadowDelay linear both
 
 #flipclock .active .flip-down .flip-shadow
     background: linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)
-    animation: hide .5s .3s linear both
+    animation: hide shadowDuration shadowDelay linear both
 
 @keyframes show
     0%
