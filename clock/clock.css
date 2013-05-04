@@ -127,12 +127,12 @@ body {
 .flip-pane-1 .flip-text {
   font-size: 300px;
   line-height: 340px;
-  background: url("flipbg.png") repeat-x;
+  background: url("clock.flip-pane-bg.png") repeat-x;
 }
 .flip-pane-2 .flip-text {
   font-size: 110px;
   line-height: 147px;
-  background: url("flipbg2.png") repeat-x;
+  background: url("clock.flip-pane-bg2.png") repeat-x;
 }
 .flip-pane .flip-apm {
   position: absolute;
