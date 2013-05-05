@@ -1,0 +1,147 @@
+HTML, BODY {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: ""
+    }
+
+.clearfix:after {
+    clear: both;
+    }
+
+.lt-ie8 .g-clearfix {
+    zoom: 1;
+    }
+
+/* ------- Reel -------
+   ==================== */
+
+.b-energy-meter__reel {
+    }
+
+.b-energy-reel {
+    overflow: hidden;
+    width: 137px;
+    height: 26px;
+    position: absolute;
+    left: 69px;
+    top: 41px;
+    }
+
+.b-energy-reel__shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 137px;
+    height: 26px;
+    background: url('counter.png') -37px -456px no-repeat;
+    z-index: 1;
+    }
+
+.b-energy-reel__numbers {
+    float: left;
+    width: 22px;
+    height: 26px;
+    margin-left: 1px;
+    background: url('counter-numbers.png') 0 -261px repeat-y;
+    }
+
+.b-energy-reel__numbers_last {
+    background-position: -22px -261px;
+    }
+
+.b-energy-reel__numbers:first-child {
+    margin-left: 0;
+    }
+
+/* End | Reel */
+
+/* ------- Meter -------
+   ===================== */
+
+.b-energy-meter {
+    width: 799px;
+    margin: 0 auto;
+    margin-top: 150px;
+    }
+
+.b-energy-meter__item {
+    float: left;
+    width: 271px;
+    }
+
+.b-energy-meter__item_led {
+    }
+
+.b-energy-meter__item_led .b-energy-meter__device {
+    background-position: 0 0;
+    }
+
+.b-energy-meter__item_lum .b-energy-meter__device {
+    background-position: 0 -210px;
+    }
+
+.b-energy-meter__device {
+    width: 271px;
+    height: 210px;
+    background: url('counter.png') no-repeat;
+    margin-bottom: 25px;
+    float: left;
+    position: relative;
+    }
+
+.b-energy-meter__path {
+    position: absolute;
+    top: 122px;
+    left: 35px;
+    width: 199px;
+    height: 22px;
+    background: url('counter.png') -37px -434px no-repeat;
+    z-index: 1;
+    }
+
+.b-energy-meter__track {
+    position: absolute;
+    width: 199px;
+    height: 22px;
+    overflow: hidden;
+    top: 122px;
+    left: 35px;
+    z-index: 0;
+    }
+
+.b-energy-meter__tracker {
+    width: 35px;
+    height: 7px;
+    position: absolute;
+    left: -35px;
+    top: 7px;
+    z-index: 0;
+    }
+
+.b-energy-meter__item_led .b-energy-meter__tracker {
+    background: #0099cc;
+    }
+
+.b-energy-meter__item_lum .b-energy-meter__tracker {
+    background: #993399;
+    }
+
+.b-energy-meter__sign_more {
+    margin: 71px 110px 0 110px;
+    float: left;
+    width: 37px;
+    height: 68px;
+    background: url('counter.png') 0 -420px no-repeat;
+    }
+
+/* End | Energy */
