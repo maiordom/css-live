@@ -7,21 +7,25 @@
   Counter = function() {
     var animateBg, init, reelAnimation, reelNumberAnimation, trackerAnimation;
     init = function() {
-      var led, lum;
+      var elBgPerOneNumber, led, ledTimePerOne, lum, lumTimePerOne, numbersCount;
       led = $('.b-energy-meter__item_led');
       lum = $('.b-energy-meter__item_lum');
-      reelAnimation(led, 1800 * 2, 29);
-      reelAnimation(lum, 800 * 2, 29);
-      trackerAnimation(led, 1800 * 2);
-      return trackerAnimation(lum, 800 * 2);
+      elBgPerOneNumber = 29;
+      numbersCount = 10;
+      ledTimePerOne = 3600;
+      lumTimePerOne = 1600;
+      reelAnimation(led, ledTimePerOne * numbersCount, elBgPerOneNumber * numbersCount);
+      reelAnimation(lum, lumTimePerOne * numbersCount, elBgPerOneNumber * numbersCount);
+      trackerAnimation(led, ledTimePerOne);
+      return trackerAnimation(lum, lumTimePerOne);
     };
-    reelAnimation = function(el, timePerOne, elBgPerOne) {
+    reelAnimation = function(el, time, value) {
       var animObj, i, k, numbers, _i, _ref, _results;
       numbers = el.find('.b-energy-reel__numbers');
-      k = 10;
+      k = 1;
       _results = [];
       for (i = _i = _ref = numbers.length - 1; _i >= 0; i = _i += -1) {
-        animObj = reelNumberAnimation(numbers.eq(i), timePerOne * k, elBgPerOne * 10);
+        animObj = reelNumberAnimation(numbers.eq(i), time * k, value);
         animObj.play();
         _results.push(k *= 10);
       }

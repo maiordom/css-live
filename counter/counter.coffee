@@ -4,18 +4,23 @@ Counter = ->
     init = ->
         led = $( '.b-energy-meter__item_led' )
         lum = $( '.b-energy-meter__item_lum' )
+        elBgPerOneNumber = 29
+        numbersCount     = 10
+        ledTimePerOne    = 3600
+        lumTimePerOne    = 1600
 
-        reelAnimation( led, 1800 * 2, 29 )
-        reelAnimation( lum,  800 * 2, 29 )
-        trackerAnimation( led, 1800 * 2 )
-        trackerAnimation( lum,  800 * 2 )
+        reelAnimation( led, ledTimePerOne * numbersCount, elBgPerOneNumber * numbersCount )
+        reelAnimation( lum, lumTimePerOne * numbersCount, elBgPerOneNumber * numbersCount )
+        
+        trackerAnimation( led, ledTimePerOne )
+        trackerAnimation( lum, lumTimePerOne )
 
-    reelAnimation = ( el, timePerOne, elBgPerOne ) ->
+    reelAnimation = ( el, time, value ) ->
         numbers = el.find( '.b-energy-reel__numbers' )
-        k = 10
+        k = 1
 
         for i in [ numbers.length - 1..0 ] by -1
-            animObj = reelNumberAnimation( numbers.eq( i ), timePerOne * k, elBgPerOne * 10 )
+            animObj = reelNumberAnimation( numbers.eq( i ), time * k, value )
             animObj.play()
             k *= 10
 

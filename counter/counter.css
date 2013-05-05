@@ -8,6 +8,10 @@ HTML, BODY {
     margin: 0;
 }
 
+BODY {
+    background: #fff;
+}
+
 .clearfix:before,
 .clearfix:after {
     display: table;
@@ -71,7 +75,7 @@ HTML, BODY {
 .b-energy-meter {
     width: 799px;
     margin: 0 auto;
-    margin-top: 150px;
+    padding-top: 150px;
     }
 
 .b-energy-meter__item {
