@@ -1,0 +1,142 @@
+<!doctype html>
+<!--[if lt IE 7]>     <html class="lt-ie9 lt-ie8 lt-ie7" lang="ru"><![endif]-->
+<!--[if IE 7]>        <html class="lt-ie9 lt-ie8"        lang="ru"><![endif]-->
+<!--[if IE 8]>        <html class="lt-ie9"               lang="ru"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="am.css">
+</head>
+
+<body>
+    
+    <div class="wrapper clearfix">
+
+        <div class="ulist-box">
+            
+            <div class="ulist">
+                <div class="ulist-title clearfix">
+                    <i class="ulist-icon-arrow"></i>
+                    <span>3D-шутеры, «бродилки-стрелялки»</span>
+                    <i class="ulist-icon-control"></i>
+                </div>
+                <ul class="ulist-list">
+                    <li class="ulist-item"><i></i>Шутеры от первого и от третьего лица</li>
+                    <li class="ulist-item"><i></i>«Кровавые» шутеры</li>
+                    <li class="ulist-item"><i></i>Тактические шутеры</li>
+                </ul>
+            </div>
+
+            <div class="ulist">
+                <div class="ulist-title">
+                    <i class="ulist-icon-arrow"></i>
+                    <span>Файтинги</span>
+                    <i class="ulist-icon-control"></i>
+                </div>
+                <ul class="ulist-list">
+                    <li class="ulist-item"><i></i>Избей их всех</li>
+                    <li class="ulist-item"><i></i>Слэшер</li>
+                </ul>
+            </div>
+
+            <div class="ulist">
+                <div class="ulist-title">
+                    <i class="ulist-icon-arrow"></i>
+                    <span>Симуляторы/Менеджеры</span>
+                    <i class="ulist-icon-control"></i>
+                </div>
+                <ul class="ulist-list">
+                    <li class="ulist-item"><i></i>Технические</li>
+                    <li class="ulist-item"><i></i>Аркадные</li>
+                    <li class="ulist-item"><i></i>Спортивные</li>
+                    <li class="ulist-item"><i></i>Спортивный менеджер</li>
+                    <li class="ulist-item"><i></i>Экономические</li>
+                </ul>
+            </div>
+
+            <div class="ulist">
+                <div class="ulist-title">
+                    <i class="ulist-icon-arrow"></i>
+                    <span>Стратегии по схеме игрового процесса</span>
+                    <i class="ulist-icon-control"></i>
+                </div>
+                <ul class="ulist-list">
+                    <li class="ulist-item"><i></i>Стратегии в реальном времени</li>
+                    <li class="ulist-item"><i></i>Пошаговые стратегии</li>
+                    <li class="ulist-item"><i></i>Карточные стратегии</li>
+                </ul>
+            </div>
+
+            <div class="ulist">
+                <div class="ulist-title">
+                    <i class="ulist-icon-arrow"></i>
+                    <span>Стратегии по масштабу игрового процесса</span>
+                    <i class="ulist-icon-control"></i>
+                </div>
+                <ul class="ulist-list">
+                    <li class="ulist-item"><i></i>Варгеймы</li>
+                    <li class="ulist-item"><i></i>Глобальные стратегии</li>
+                    <li class="ulist-item"><i></i>Симуляторы бога</li>
+                    <li class="ulist-item"><i></i>Спортивный менеджер</li>
+                    <li class="ulist-item"><i></i>Экономические</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="jform">
+            <input type="text" class="jform-field" placeholder="Поиск">
+            <p class="jform-title">Искать только в категориях:</p>
+            <div class="jform-inner"></div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="placeholder.js"></script>
+    <script src="am.js"></script>
+    <script>
+        $( document ).ready( function() {
+            var ulist, ulistApi, field, fieldApi, ulistProps;
+
+            ulistProps = {
+                fixBoxWidth: true,
+                fixBoxItemsWidth: true,
+                selectBox: $( '.jform-inner' )
+            };
+
+            ulist    = $( '.ulist-box' ).Ulist( ulistProps );
+            field    = $( '.jform-field' ).iHolder();
+            ulistApi = ulist.data( 'ulist' );
+            fieldApi = field.data( 'iHolder' );
+
+            field.keyup( onFieldKeyup );
+
+            if ( !fieldApi.test() ) {
+                $( 'body' ).addClass( 'css3-no-placeholder' );
+            } else {
+                $( 'body' ).addClass( 'css3-placeholder' );
+            }
+
+            function onFieldKeyup( e ) {
+                if ( e.keyCode === 13 ) {
+                    var params = ulistApi.getParams(),
+                        value = $.trim( field.val() );
+
+                    if ( value && value !== fieldApi.placeholder ) {
+                        sendXhr( value, params );
+                    }
+                }   
+            }
+
+            function sendXhr( value, params ) {
+                console.log( value, params );
+            }
+        });        
+    </script>
+
+</body>
+
+</html>
