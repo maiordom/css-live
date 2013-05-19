@@ -36,8 +36,8 @@
                     <i class="ulist-icon-control"></i>
                 </div>
                 <ul class="ulist-list">
-                    <li class="ulist-item"><i></i>Избей их всех</li>
-                    <li class="ulist-item"><i></i>Слэшер</li>
+                    <li class="ulist-item ulist-item-active"><i></i>Избей их всех</li>
+                    <li class="ulist-item ulist-item-active"><i></i>Слэшер</li>
                 </ul>
             </div>
 
@@ -50,8 +50,8 @@
                 <ul class="ulist-list">
                     <li class="ulist-item"><i></i>Технические</li>
                     <li class="ulist-item"><i></i>Аркадные</li>
-                    <li class="ulist-item"><i></i>Спортивные</li>
-                    <li class="ulist-item"><i></i>Спортивный менеджер</li>
+                    <li class="ulist-item ulist-item-active"><i></i>Спортивные</li>
+                    <li class="ulist-item ulist-item-active"><i></i>Спортивный менеджер</li>
                     <li class="ulist-item"><i></i>Экономические</li>
                 </ul>
             </div>
@@ -87,7 +87,10 @@
         </div>
 
         <div class="jform">
-            <input type="text" class="jform-field" placeholder="Поиск">
+            <div class="jform-field-box">
+                <input type="text" class="jform-field" placeholder="Поиск">
+                <span class="jform-btn">Найти</span>
+            </div>
             <p class="jform-title">Искать только в категориях:</p>
             <div class="jform-inner"></div>
         </div>
@@ -99,7 +102,7 @@
     <script src="am.js"></script>
     <script>
         $( document ).ready( function() {
-            var ulist, ulistApi, field, fieldApi, ulistProps;
+            var ulist, ulistApi, field, fieldApi, ulistProps, findBtn;
 
             ulistProps = {
                 fixBoxWidth: true,
@@ -109,10 +112,12 @@
 
             ulist    = $( '.ulist-box' ).Ulist( ulistProps );
             field    = $( '.jform-field' ).iHolder();
+            findBtn  = $( '.jform-btn');
             ulistApi = ulist.data( 'ulist' );
             fieldApi = field.data( 'iHolder' );
 
             field.keyup( onFieldKeyup );
+            findBtn.click( onFindBtnClick );
 
             if ( !fieldApi.test() ) {
                 $( 'body' ).addClass( 'css3-no-placeholder' );
@@ -120,15 +125,23 @@
                 $( 'body' ).addClass( 'css3-placeholder' );
             }
 
+            function onFindBtnClick() {
+                trySend();
+            }
+
             function onFieldKeyup( e ) {
                 if ( e.keyCode === 13 ) {
-                    var params = ulistApi.getParams(),
-                        value = $.trim( field.val() );
-
-                    if ( value && value !== fieldApi.placeholder ) {
-                        sendXhr( value, params );
-                    }
+                    trySend();
                 }   
+            }
+
+            function trySend() {
+                var params = ulistApi.getParams(),
+                    value = $.trim( field.val() );
+
+                if ( value && value !== fieldApi.placeholder ) {
+                    sendXhr( value, params );
+                }    
             }
 
             function sendXhr( value, params ) {

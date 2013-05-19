@@ -174,15 +174,39 @@ input, textarea {
     padding-left: 50px;
 }
 
+.jform-field-box {
+    display: inline-block;
+    border: 1px solid #345372;
+
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+}
+
 .jform-field {
     width: 250px;
-    padding: 5px 10px;
-    border: 1px solid #345372;
     outline: none;
+    padding: 5px 0 5px 10px;
+    border: none;
+    background: none;
+}
 
-    -webkit-border-radius: 10px;
-       -moz-border-radius: 10px;
-            border-radius: 10px;
+.jform-btn {
+    display: inline-block;
+    background: #345372;
+    color: white;
+    line-height: 24px;
+    padding: 0 10px;
+    cursor: pointer;
+    margin-right: 2px;
+
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+}
+
+.jform-btn:hover {
+    background: #2C4966;
 }
 
 .css3-no-placeholder .jform-field {

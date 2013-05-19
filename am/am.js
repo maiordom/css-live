@@ -21,7 +21,18 @@
             setElWidth( elWidth );
             setLastItemCls();
             setItemsId();
-            bindEvents();            
+            bindEvents();
+            setControlState();            
+        }
+
+        function check() {
+            $items.filter( '.' + activeItemCls ).each( function() {
+                var item = $( this ),
+                    text = item.text(),
+                    id   = item.data( 'id' );
+
+                $event.trigger( 'select', [ id, text ] );
+            });
         }
 
         function cacheObjects() {
@@ -60,7 +71,7 @@
                 $control.addClass( fullControlState );
             }
 
-            e.stopPropagation();
+            e && e.stopPropagation();
         }
 
         function setControlState() {
@@ -125,7 +136,8 @@
             on: on,
             elWidth: elWidth,
             destroy: destroy,
-            setElWidth: setElWidth
+            setElWidth: setElWidth,
+            check: check
         }
     }
 
@@ -152,6 +164,7 @@
             entity = Ulist( this );
             entities.push( entity );
             bindEntityEvents( entity );
+            entity.check();
         }
 
         function bindEntityEvents( entity ) {
