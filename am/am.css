@@ -183,22 +183,30 @@ input, textarea {
             border-radius: 30px;
 }
 
+.lt-ie8 .jform-field-box {
+    zoom: 1;
+    display: inline;
+}
+
 .jform-field {
-    width: 250px;
+    margin-left: 10px;
+    width: 254px;
     outline: none;
-    padding: 5px 0 5px 10px;
+    padding: 5px 0 5px 0;
     border: none;
     background: none;
+    height: 18px;
+    float: left;
 }
 
 .jform-btn {
-    display: inline-block;
+    float: left;
     background: #345372;
     color: white;
     line-height: 24px;
     padding: 0 10px;
     cursor: pointer;
-    margin-right: 2px;
+    margin: 2px 2px 0 0;
 
     -webkit-border-radius: 30px;
        -moz-border-radius: 30px;
@@ -218,7 +226,7 @@ input, textarea {
 }
 
 .jform-title {
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 .jform-inner {
@@ -226,29 +234,27 @@ input, textarea {
 }
 
 .yabble {
+    position: relative;
     cursor: pointer;
     color: white;
-    display: inline-block;
-    padding: 5px 7px 5px 10px;
+    float: left;
+    padding: 5px 25px 5px 10px;
     background: #345372;
     margin: 5px 5px 5px 0;
+    white-space: nowrap;
 
     -webkit-border-radius: 10px;
        -moz-border-radius: 10px;
             border-radius: 10px;
 }
 
-.yabble i {  
-    margin: 3px 0 0 5px;
-    float: right;
+.yabble i {
+    position: absolute;
+    right: 7px;
+    top: 8px;
     width: 13px;
     height: 13px;
     background: url('am.png') -40px -40px;
-}
-
-.lt-ie8 .yabble i {
-    display: inline;
-    zoom: 1;
 }
 
 /* End | jForm & Yabble */
