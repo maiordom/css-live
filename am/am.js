@@ -1,7 +1,6 @@
 (function( root, $ ) {
     var activeItemCls       = 'ulist-item-active',
         boxHiddenCls        = 'ulist-hidden',
-        lastItemCls         = 'ulist-item-last',
         notFullControlState = 'ulist-icon-control-not-full',
         fullControlState    = 'ulist-icon-control-full',
         ulistItemPrefix     = 'ulist-item-id-',
@@ -19,10 +18,9 @@
         function init() {
             cacheObjects();
             setElWidth( elWidth );
-            setLastItemCls();
             setItemsId();
             bindEvents();
-            setControlState();            
+            setControlState();
         }
 
         function check() {
@@ -116,10 +114,6 @@
 
         function setElWidth( width ) {
             $el.width( width );
-        }
-
-        function setLastItemCls() {
-            $el.find( '.ulist-item:last' ).addClass( lastItemCls );
         }
 
         function destroy() {
@@ -246,4 +240,16 @@
             }
         });
     };
+    
+    jQuery.support.borderRadius = false;
+    jQuery.each( [ 'BorderRadius', 'MozBorderRadius', 'WebkitBorderRadius', 'OBorderRadius', 'KhtmlBorderRadius' ], function() {
+        if ( document.body.style[ this ] !== undefined ) {
+            jQuery.support.borderRadius = true;
+            return false;
+        }
+    });
+
+    jQuery.support.borderRadius ?
+        $( 'body' ).addClass( 'css3-border-radius' ) :
+        $( 'body' ).addClass( 'css3-no-border-radius' );
 })( window, jQuery );

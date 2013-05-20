@@ -13,77 +13,7 @@
 <body>
     
     <div class="wrapper clearfix">
-        <div class="ulist-box">
-            
-            <div class="ulist">
-                <div class="ulist-title clearfix">
-                    <i class="ulist-icon-arrow"></i>
-                    <span>3D-шутеры, «бродилки-стрелялки»</span>
-                    <i class="ulist-icon-control"></i>
-                </div>
-                <ul class="ulist-list">
-                    <li class="ulist-item"><i></i>Шутеры от первого и от третьего лица</li>
-                    <li class="ulist-item"><i></i>«Кровавые» шутеры</li>
-                    <li class="ulist-item"><i></i>Тактические шутеры</li>
-                </ul>
-            </div>
-
-            <div class="ulist">
-                <div class="ulist-title">
-                    <i class="ulist-icon-arrow"></i>
-                    <span>Файтинги</span>
-                    <i class="ulist-icon-control"></i>
-                </div>
-                <ul class="ulist-list">
-                    <li class="ulist-item ulist-item-active"><i></i>Избей их всех</li>
-                    <li class="ulist-item ulist-item-active"><i></i>Слэшер</li>
-                </ul>
-            </div>
-
-            <div class="ulist">
-                <div class="ulist-title">
-                    <i class="ulist-icon-arrow"></i>
-                    <span>Симуляторы/Менеджеры</span>
-                    <i class="ulist-icon-control"></i>
-                </div>
-                <ul class="ulist-list">
-                    <li class="ulist-item"><i></i>Технические</li>
-                    <li class="ulist-item"><i></i>Аркадные</li>
-                    <li class="ulist-item ulist-item-active"><i></i>Спортивные</li>
-                    <li class="ulist-item ulist-item-active"><i></i>Спортивный менеджер</li>
-                    <li class="ulist-item"><i></i>Экономические</li>
-                </ul>
-            </div>
-
-            <div class="ulist">
-                <div class="ulist-title">
-                    <i class="ulist-icon-arrow"></i>
-                    <span>Стратегии по схеме игрового процесса</span>
-                    <i class="ulist-icon-control"></i>
-                </div>
-                <ul class="ulist-list">
-                    <li class="ulist-item"><i></i>Стратегии в реальном времени</li>
-                    <li class="ulist-item"><i></i>Пошаговые стратегии</li>
-                    <li class="ulist-item"><i></i>Карточные стратегии</li>
-                </ul>
-            </div>
-
-            <div class="ulist">
-                <div class="ulist-title">
-                    <i class="ulist-icon-arrow"></i>
-                    <span>Стратегии по масштабу игрового процесса</span>
-                    <i class="ulist-icon-control"></i>
-                </div>
-                <ul class="ulist-list">
-                    <li class="ulist-item"><i></i>Варгеймы</li>
-                    <li class="ulist-item"><i></i>Глобальные стратегии</li>
-                    <li class="ulist-item"><i></i>Симуляторы бога</li>
-                    <li class="ulist-item"><i></i>Спортивный менеджер</li>
-                    <li class="ulist-item"><i></i>Экономические</li>
-                </ul>
-            </div>
-
-        </div>
+        <div class="ulist-box"></div>
 
         <div class="jform">
             <div class="jform-field-box clearfix">
@@ -96,18 +26,121 @@
 
     </div>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        UlistData = [{
+            title: '3D-шутеры, «бродилки-стрелялки»',
+            childs: [{
+                title: 'Шутеры от первого и от третьего лица' }, {
+                title: '«Кровавые» шутеры' }, {
+                title: 'Тактические шутеры', active: true 
+            }]
+        }, {
+            title: 'Файтинги',
+            childs: [{
+                title: 'Избей их всех', active: true }, {
+                title: 'Слэшер', active: true 
+            }]
+        }, {
+            title: 'Симуляторы/Менеджеры',
+            childs: [{
+                title: 'Технические' }, {
+                title: 'Аркадные' }, {
+                title: 'Спортивные', active: true }, {
+                title: 'Спортивный менеджер', active: true }, {
+                title: 'Экономические'
+            }]
+        }, {
+            title: 'Стратегии по схеме игрового процесса',
+            childs: [{
+                title: 'Стратегии в реальном времени' }, {
+                title: 'Пошаговые стратегии' }, {
+                title: 'Карточные стратегии'
+            }]
+        }, {
+            title: 'Стратегии по масштабу игрового процесса',
+            childs: [{
+                title: 'Варгеймы' }, {
+                title: 'Глобальные стратегии' }, {
+                title: 'Симуляторы бога' }, {
+                title: 'Спортивный менеджер' }, {
+                title: 'Экономические'
+            }]
+        }];
+    </script>
+
+    <script id="ulist-tmpl-border-radius" type="text/x-jquery-tmpl">
+        <div class="ulist">
+            <div class="ulist-title">
+                <i class="ulist-icon-arrow"></i>
+                <span>${title}</span>
+                <i class="ulist-icon-control"></i>
+            </div>
+            <ul class="ulist-list">
+                {{each childs}}
+                {{if $index < childs.length - 1}}
+                <li class="ulist-item ${$item.getActiveCls($index)}"><i></i>${title}</li>
+                {{else}}
+                <li class="ulist-item ${$item.getActiveCls($index)} ulist-item-last"><i></i>${title}</li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+
+    <script id="ulist-tmpl-no-border-radius" type="text/x-jquery-tmpl">
+        <div class="ulist">
+            <div class="ulist-title clearfix">
+                <i class="ulist-corner-left"></i>
+                <i class="ulist-corner-right"></i>
+                <div class="ulist-title-inner">
+                    <i class="ulist-icon-arrow"></i>
+                    <span>${title}</span>
+                    <i class="ulist-icon-control"></i>
+                </div>
+            </div>
+            <ul class="ulist-list">
+                {{each childs}}
+                {{if $index < childs.length - 1}}
+                <li class="ulist-item ${$item.getActiveCls($index)}"><i></i>${title}</li>
+                {{else}}
+                <li class="ulist-item ${$item.getActiveCls($index)} ulist-item-last">
+                    <span class="ulist-corner-left"></span>
+                    <div class="ulist-item-inner">
+                        <i class="ulist-item-state"></i>Тактические шутеры
+                    </div>
+                    <span class="ulist-corner-right"></span>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="jquery.tmpl.js"></script>
     <script src="placeholder.js"></script>
     <script src="am.js"></script>
     <script>
         $( document ).ready( function() {
-            var ulist, ulistApi, field, fieldApi, ulistProps, findBtn;
+            var ulist, ulistApi, field, fieldApi, ulistProps, findBtn, tmplFuncs;
 
             ulistProps = {
                 fixBoxWidth: true,
                 fixBoxItemsWidth: true,
                 selectBox: $( '.jform-inner' )
             };
+
+            tmplFuncs = {
+                getActiveCls: function ( index ) {
+                    return this.data.childs[ index ].active ? 'ulist-item-active' : '';
+                }
+            };
+
+            if ( UlistData ) {
+                $.support.borderRadius ?
+                    $( '#ulist-tmpl-border-radius' ).tmpl( UlistData, tmplFuncs ).appendTo( '.ulist-box' ) :
+                    $( '#ulist-tmpl-no-border-radius' ).tmpl( UlistData, tmplFuncs ).appendTo( '.ulist-box' );
+            }
 
             ulist    = $( '.ulist-box' ).Ulist( ulistProps );
             field    = $( '.jform-field' ).iHolder();
@@ -117,12 +150,11 @@
 
             field.keyup( onFieldKeyup );
             findBtn.click( onFindBtnClick );
+            !$.support.borderRadius ? $( '.ulist-corner-right' ).show() : null;
 
-            if ( !fieldApi.test() ) {
+            fieldApi.test() ?
+                $( 'body' ).addClass( 'css3-placeholder' ) :
                 $( 'body' ).addClass( 'css3-no-placeholder' );
-            } else {
-                $( 'body' ).addClass( 'css3-placeholder' );
-            }
 
             function onFindBtnClick() {
                 trySend();

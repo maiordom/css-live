@@ -30,7 +30,7 @@ input, textarea {
 }
 
 .wrapper {
-    padding: 50px;
+    padding: 50px 50px 0 50px;
 }
 
 /* =====================
@@ -38,6 +38,7 @@ input, textarea {
    ===================== */
 
 .ulist-box {
+    padding-bottom: 50px;
     float: left;
 }
 
@@ -60,8 +61,9 @@ input, textarea {
     padding: 10px 40px 10px 33px;
     color: #102A44;
     background: #ffb540;
-    position: relative;
     cursor: pointer;
+    position: relative;
+    white-space: nowrap;
 
     -webkit-border-radius: 10px 10px 0 0;
        -moz-border-radius: 10px 10px 0 0;
@@ -85,15 +87,14 @@ input, textarea {
     list-style: none;
 }
 
-.ulist-item-last,
-.ulist-item:last-child {
+.ulist-item-last {
     -webkit-border-radius: 0 0 10px 10px;
        -moz-border-radius: 0 0 10px 10px;
             border-radius: 0 0 10px 10px;
 }
 
 .ulist-item {
-    padding: 0 25px 0 10px;
+    padding: 0 10px 0 10px;
     border-top: 2px solid #2C4966;
     cursor: pointer;
     line-height: 38px;
@@ -104,12 +105,15 @@ input, textarea {
             transition: all 0.3s;
 }
 
+.ulist-item-inner {
+    display: block;
+}
+
 .ulist-item-active {
     background: #2C4966;
 }
 
 .ulist-item i {
-    display: block;
     float: left;
     margin: 12px 10px 0 0;
     width: 13px;
@@ -260,3 +264,91 @@ input, textarea {
 /* End | jForm & Yabble */
 
 /* End | AM.ru */
+
+.lt-ie8 .ulist-title {
+    height: 38px;
+}
+
+.lt-ie9 .ulist-title {
+    background: none;
+    padding: 0;
+}
+
+.lt-ie9 .ulist-title-inner {
+    padding: 10px 30px 10px 23px;
+    margin: 0 10px;
+    background: #ffb540;
+}
+
+.lt-ie9 .ulist-hidden .ulist-title-inner {
+    background: #2C4966;
+}
+
+.lt-ie9 .ulist-icon-arrow {
+    left: 10px;
+}
+
+.lt-ie9 .ulist-icon-control {
+    right: 10px;
+}
+
+.lt-ie9 .ulist-corner-left,
+.lt-ie9 .ulist-corner-right {
+    display: block;
+}
+
+.lt-ie9 .ulist-item-last {
+    padding: 0;
+    background: none;
+    width: 100%;
+}
+
+.lt-ie9 .ulist-item-inner {
+    background: #345372;
+    margin: 0 10px;
+}
+
+.lt-ie9 .ulist-item-active .ulist-item-inner {
+    background: #2C4966;
+}
+
+.ulist-title .ulist-corner-left,
+.ulist-title .ulist-corner-right {
+    position: absolute;
+    top: 0;
+}
+
+.ulist-corner-left,
+.ulist-corner-right {
+    display: none;
+    width: 10px;
+    height: 38px;
+    background: url('am.png') no-repeat;
+}
+
+.ulist-title .ulist-corner-left {
+    left: 0;
+}
+
+.ulist-title .ulist-corner-right {
+    right: 0;
+}
+
+.ulist-item-last .ulist-corner-left {
+    float: left;
+}
+
+.lt-ie9 .ulist-item-last .ulist-corner-right {
+    float: right;
+    display: none;
+    margin-top: -38px;
+}
+
+              .ulist-title       .ulist-corner-left  { background-position:   0px -120px; }
+              .ulist-title       .ulist-corner-right { background-position: -10px -120px; }
+.ulist-hidden .ulist-title       .ulist-corner-left  { background-position: -20px -120px; }
+.ulist-hidden .ulist-title       .ulist-corner-right { background-position: -30px -120px; }
+              .ulist-item-last   .ulist-corner-left  { background-position: -40px -120px; }
+              .ulist-item-last   .ulist-corner-right { background-position: -50px -120px; }
+              .ulist-item-active .ulist-corner-left  { background-position: -60px -120px; }
+              .ulist-item-active .ulist-corner-right { background-position: -70px -120px; }
