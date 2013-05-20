@@ -1,7 +1,7 @@
 <!doctype html>
-<!--[if lt IE 7]>     <html class="lt-ie9 lt-ie8 lt-ie7" lang="ru"><![endif]-->
-<!--[if IE 7]>        <html class="lt-ie9 lt-ie8"        lang="ru"><![endif]-->
-<!--[if IE 8]>        <html class="lt-ie9"               lang="ru"><![endif]-->
+<!--[if lt IE 7]>     <html class="lt-ie9 ie6 lt-ie8 lt-ie7" lang="ru"><![endif]-->
+<!--[if IE 7]>        <html class="lt-ie9 ie7 lt-ie8"        lang="ru"><![endif]-->
+<!--[if IE 8]>        <html class="lt-ie9 ie8"               lang="ru"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
 
 <head>
@@ -26,46 +26,19 @@
 
     </div>
 
-    <script type="text/javascript">
-        UlistData = [{
-            title: '3D-шутеры, «бродилки-стрелялки»',
-            childs: [{
-                title: 'Шутеры от первого и от третьего лица' }, {
-                title: '«Кровавые» шутеры' }, {
-                title: 'Тактические шутеры', active: true 
-            }]
-        }, {
-            title: 'Файтинги',
-            childs: [{
-                title: 'Избей их всех', active: true }, {
-                title: 'Слэшер', active: true 
-            }]
-        }, {
-            title: 'Симуляторы/Менеджеры',
-            childs: [{
-                title: 'Технические' }, {
-                title: 'Аркадные' }, {
-                title: 'Спортивные', active: true }, {
-                title: 'Спортивный менеджер', active: true }, {
-                title: 'Экономические'
-            }]
-        }, {
-            title: 'Стратегии по схеме игрового процесса',
-            childs: [{
-                title: 'Стратегии в реальном времени' }, {
-                title: 'Пошаговые стратегии' }, {
-                title: 'Карточные стратегии'
-            }]
-        }, {
-            title: 'Стратегии по масштабу игрового процесса',
-            childs: [{
-                title: 'Варгеймы' }, {
-                title: 'Глобальные стратегии' }, {
-                title: 'Симуляторы бога' }, {
-                title: 'Спортивный менеджер' }, {
-                title: 'Экономические'
-            }]
-        }];
+    <script id="yabble-tmpl-border-radius" type="text/x-jquery-tmpl">
+        <span class="yabble ${clsId}" data-id="${id}">
+            ${title}<i class="yabble-close"></i>
+        </span>
+    </script>
+
+    <script id="yabble-tmpl-no-border-radius" type="text/x-jquery-tmpl">
+        <span class="yabble ${clsId}" data-id="${id}">
+            <span class="ulist-corner-left"></span>
+            <span class="yabble-inner">${title}</span>
+            <i class="yabble-close"></i>
+            <span class="ulist-corner-right"></span>
+        </span>  
     </script>
 
     <script id="ulist-tmpl-border-radius" type="text/x-jquery-tmpl">
@@ -106,7 +79,7 @@
                 <li class="ulist-item ${$item.getActiveCls($index)} ulist-item-last">
                     <span class="ulist-corner-left"></span>
                     <div class="ulist-item-inner">
-                        <i class="ulist-item-state"></i>Тактические шутеры
+                        <i class="ulist-item-state"></i>${title}
                     </div>
                     <span class="ulist-corner-right"></span>
                 </li>
@@ -120,66 +93,7 @@
     <script src="jquery.tmpl.js"></script>
     <script src="placeholder.js"></script>
     <script src="am.js"></script>
-    <script>
-        $( document ).ready( function() {
-            var ulist, ulistApi, field, fieldApi, ulistProps, findBtn, tmplFuncs;
-
-            ulistProps = {
-                fixBoxWidth: true,
-                fixBoxItemsWidth: true,
-                selectBox: $( '.jform-inner' )
-            };
-
-            tmplFuncs = {
-                getActiveCls: function ( index ) {
-                    return this.data.childs[ index ].active ? 'ulist-item-active' : '';
-                }
-            };
-
-            if ( UlistData ) {
-                $.support.borderRadius ?
-                    $( '#ulist-tmpl-border-radius' ).tmpl( UlistData, tmplFuncs ).appendTo( '.ulist-box' ) :
-                    $( '#ulist-tmpl-no-border-radius' ).tmpl( UlistData, tmplFuncs ).appendTo( '.ulist-box' );
-            }
-
-            ulist    = $( '.ulist-box' ).Ulist( ulistProps );
-            field    = $( '.jform-field' ).iHolder();
-            findBtn  = $( '.jform-btn');
-            ulistApi = ulist.data( 'ulist' );
-            fieldApi = field.data( 'iHolder' );
-
-            field.keyup( onFieldKeyup );
-            findBtn.click( onFindBtnClick );
-            !$.support.borderRadius ? $( '.ulist-corner-right' ).show() : null;
-
-            fieldApi.test() ?
-                $( 'body' ).addClass( 'css3-placeholder' ) :
-                $( 'body' ).addClass( 'css3-no-placeholder' );
-
-            function onFindBtnClick() {
-                trySend();
-            }
-
-            function onFieldKeyup( e ) {
-                if ( e.keyCode === 13 ) {
-                    trySend();
-                }   
-            }
-
-            function trySend() {
-                var params = ulistApi.getParams(),
-                    value = $.trim( field.val() );
-
-                if ( value && value !== fieldApi.placeholder ) {
-                    sendXhr( value, params );
-                }    
-            }
-
-            function sendXhr( value, params ) {
-                console.log( value, params );
-            }
-        });        
-    </script>
+    <script src="am.master.js"></script>
 
 </body>
 

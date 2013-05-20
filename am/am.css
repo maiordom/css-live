@@ -58,7 +58,9 @@ input, textarea {
 }
 
 .ulist-title {
-    padding: 10px 40px 10px 33px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 40px 0 33px;
     color: #102A44;
     background: #ffb540;
     cursor: pointer;
@@ -241,8 +243,10 @@ input, textarea {
     position: relative;
     cursor: pointer;
     color: white;
-    float: left;
-    padding: 5px 25px 5px 10px;
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 25px 0 10px;
     background: #345372;
     margin: 5px 5px 5px 0;
     white-space: nowrap;
@@ -252,7 +256,7 @@ input, textarea {
             border-radius: 10px;
 }
 
-.yabble i {
+.yabble-close {
     position: absolute;
     right: 7px;
     top: 8px;
@@ -261,56 +265,15 @@ input, textarea {
     background: url('am.png') -40px -40px;
 }
 
+.yabble-inner {
+    float: left;
+}
+
 /* End | jForm & Yabble */
 
-/* End | AM.ru */
-
-.lt-ie8 .ulist-title {
-    height: 38px;
-}
-
-.lt-ie9 .ulist-title {
-    background: none;
-    padding: 0;
-}
-
-.lt-ie9 .ulist-title-inner {
-    padding: 10px 30px 10px 23px;
-    margin: 0 10px;
-    background: #ffb540;
-}
-
-.lt-ie9 .ulist-hidden .ulist-title-inner {
-    background: #2C4966;
-}
-
-.lt-ie9 .ulist-icon-arrow {
-    left: 10px;
-}
-
-.lt-ie9 .ulist-icon-control {
-    right: 10px;
-}
-
-.lt-ie9 .ulist-corner-left,
-.lt-ie9 .ulist-corner-right {
-    display: block;
-}
-
-.lt-ie9 .ulist-item-last {
-    padding: 0;
-    background: none;
-    width: 100%;
-}
-
-.lt-ie9 .ulist-item-inner {
-    background: #345372;
-    margin: 0 10px;
-}
-
-.lt-ie9 .ulist-item-active .ulist-item-inner {
-    background: #2C4966;
-}
+/* =======================
+   ------- Corners -------
+   ======================= */
 
 .ulist-title .ulist-corner-left,
 .ulist-title .ulist-corner-right {
@@ -338,10 +301,10 @@ input, textarea {
     float: left;
 }
 
-.lt-ie9 .ulist-item-last .ulist-corner-right {
-    float: right;
-    display: none;
-    margin-top: -38px;
+.yabble .ulist-corner-left,
+.yabble .ulist-corner-right {
+    height: 28px;
+    float: left;
 }
 
               .ulist-title       .ulist-corner-left  { background-position:   0px -120px; }
@@ -352,3 +315,86 @@ input, textarea {
               .ulist-item-last   .ulist-corner-right { background-position: -50px -120px; }
               .ulist-item-active .ulist-corner-left  { background-position: -60px -120px; }
               .ulist-item-active .ulist-corner-right { background-position: -70px -120px; }
+              .yabble            .ulist-corner-left  { background-position: -80px -120px; }
+              .yabble            .ulist-corner-right { background-position: -90px -120px; }
+
+/* End | Corners */
+
+/* ========================
+   ------- IE - FIX -------
+   ======================== */
+
+/* Yabble */
+
+.ie8 .yabble {
+    float: left;
+}
+
+.lt-ie9 .yabble {
+    background: none;
+    padding: 0;
+}
+
+.lt-ie9 .yabble-inner {
+    background: #345372;
+    padding: 0 15px 0 0;
+}
+
+/* End | Yabble */
+
+/* Title */
+
+.lt-ie9 .ulist-title {
+    background: none;
+    padding: 0;
+}
+
+.lt-ie9 .ulist-title-inner {
+    padding: 0 30px 0 23px;
+    margin: 0 10px;
+    background: #ffb540;
+}
+
+.lt-ie9 .ulist-hidden .ulist-title-inner {
+    background: #2C4966;
+}
+
+.lt-ie9 .ulist-icon-arrow {
+    left: 10px;
+}
+
+.lt-ie9 .ulist-icon-control {
+    right: 10px;
+}
+
+/* End | Ttitle */
+
+.lt-ie9 .ulist-corner-left,
+.lt-ie9 .ulist-corner-right {
+    display: block;
+}
+
+.lt-ie9 .ulist-item-last {
+    padding: 0;
+    background: none;
+    width: 100%;
+}
+
+.lt-ie9 .ulist-item-inner {
+    background: #345372;
+    margin: 0 10px;
+}
+
+.lt-ie9 .ulist-item-active .ulist-item-inner {
+    background: #2C4966;
+}
+
+.lt-ie9 .ulist-item-last .ulist-corner-right {
+    float: right;
+    display: none;
+    margin-top: -38px;
+}
+
+/* End | IE - FIX */
+
+/* End | AM.ru */

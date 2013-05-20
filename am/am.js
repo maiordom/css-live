@@ -24,7 +24,9 @@
         }
 
         function check() {
+            console.log( $items.length );
             $items.filter( '.' + activeItemCls ).each( function() {
+                console.log( $( this ).attr( 'class' ) );
                 var item = $( this ),
                     text = item.text(),
                     id   = item.data( 'id' );
@@ -137,7 +139,8 @@
 
     function UlistBox( box, options ) {
         var entities = [], entity, temp, maxWidth, 
-            selectBox = options.selectBox || $( '<div>' );
+            selectBox = options.selectBox || $( '<div>' ),
+            yabbleTmpl = options.yabbleTmpl;
 
         function init() {
             box.find( '.ulist' ).each( initEntity );
@@ -188,10 +191,11 @@
         }
 
         function createYabble( id, text ) {
-            return '' + 
-            '<div class="yabble ' + ( ulistItemPrefix + id ) + '" data-id="' + id + '">' +
-                text + '<i></i>' +
-            '</div>';
+            return yabbleTmpl.tmpl({
+                clsId: ulistItemPrefix + id,
+                id: id,
+                title: text
+            });
         }
 
         function sortBoxItemsByWidth( arr, propName ) {
@@ -242,7 +246,7 @@
     };
     
     jQuery.support.borderRadius = false;
-    jQuery.each( [ 'BorderRadius', 'MozBorderRadius', 'WebkitBorderRadius', 'OBorderRadius', 'KhtmlBorderRadius' ], function() {
+    jQuery.each( [ 'borderRadius', 'BorderRadius', 'MozBorderRadius', 'WebkitBorderRadius', 'OBorderRadius', 'KhtmlBorderRadius' ], function() {
         if ( document.body.style[ this ] !== undefined ) {
             jQuery.support.borderRadius = true;
             return false;
