@@ -324,6 +324,11 @@ input, textarea {
    ------- IE - FIX -------
    ======================== */
 
+.lt-ie8 .jform-title {
+    margin-top: 10px;
+}
+
+
 /* Yabble */
 
 .ie8 .yabble {
