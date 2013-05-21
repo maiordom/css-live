@@ -161,12 +161,12 @@ input, textarea {
     border-top: none;
 }
 
-              .ulist-icon-control          { background-position:   0px -80px;  }
-              .ulist-icon-control-full     { background-position: -20px -80px;  }
-              .ulist-icon-control-not-full { background-position: -40px -80px;  }
-.ulist-hidden .ulist-icon-control          { background-position:   0px -100px; }
-.ulist-hidden .ulist-icon-control-full     { background-position: -20px -100px; }
-.ulist-hidden .ulist-icon-control-not-full { background-position: -40px -100px; }
+                 .ulist-icon-control          { background-position:   0px -80px;  }
+                 .ulist-icon-control-full     { background-position: -20px -80px;  }
+                 .ulist-icon-control-not-full { background-position: -40px -80px;  }
+.ulist-title-psv .ulist-icon-control          { background-position:   0px -100px; }
+.ulist-title-psv .ulist-icon-control-full     { background-position: -20px -100px; }
+.ulist-title-psv .ulist-icon-control-not-full { background-position: -40px -100px; }
 
 /* End | Ulist */
 
@@ -195,14 +195,14 @@ input, textarea {
 }
 
 .jform-field {
-    margin-left: 10px;
+    float: left;
+    margin: 0 4px 0 10px;
     width: 254px;
     outline: none;
     padding: 5px 0 5px 0;
     border: none;
     background: none;
     height: 18px;
-    float: left;
 }
 
 .jform-btn {
@@ -221,6 +221,21 @@ input, textarea {
 
 .jform-btn:hover {
     background: #2C4966;
+}
+
+.jform-btn-inner {
+    float: left;
+}
+
+.jform-field-inner-bck {
+    display: none;
+    top: 0;
+    position: absolute;
+    height: 28px;
+    left: 15px;
+    right: 15px;
+    border-top: 1px solid #345372;
+    border-bottom: 1px solid #345372;
 }
 
 .css3-no-placeholder .jform-field {
@@ -256,6 +271,10 @@ input, textarea {
             border-radius: 10px;
 }
 
+.yabble:hover {
+    background: #2C4966;
+}
+
 .yabble-close {
     position: absolute;
     right: 7px;
@@ -289,11 +308,13 @@ input, textarea {
     background: url('am.png') no-repeat;
 }
 
-.ulist-title .ulist-corner-left {
+.ulist-title .ulist-corner-left,
+.jform-field-corner-left {
     left: 0;
 }
 
-.ulist-title .ulist-corner-right {
+.ulist-title .ulist-corner-right,
+.jform-field-corner-right {
     right: 0;
 }
 
@@ -307,16 +328,41 @@ input, textarea {
     float: left;
 }
 
-              .ulist-title       .ulist-corner-left  { background-position:   0px -120px; }
-              .ulist-title       .ulist-corner-right { background-position: -10px -120px; }
-.ulist-hidden .ulist-title       .ulist-corner-left  { background-position: -20px -120px; }
-.ulist-hidden .ulist-title       .ulist-corner-right { background-position: -30px -120px; }
-              .ulist-item-last   .ulist-corner-left  { background-position: -40px -120px; }
-              .ulist-item-last   .ulist-corner-right { background-position: -50px -120px; }
-              .ulist-item-active .ulist-corner-left  { background-position: -60px -120px; }
-              .ulist-item-active .ulist-corner-right { background-position: -70px -120px; }
-              .yabble            .ulist-corner-left  { background-position: -80px -120px; }
-              .yabble            .ulist-corner-right { background-position: -90px -120px; }
+.jform-btn-corner-left,
+.jform-btn-corner-right {
+    display: none;
+    width: 12px;
+    height: 24px;
+    float: left;
+    background: url('am.png') no-repeat;
+}
+
+.jform-field-corner-left,
+.jform-field-corner-right {
+    display: none;
+    width: 15px;
+    height: 30px;
+    background: url('am.png') no-repeat;
+
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.ulist-title        .ulist-corner-left        { background-position:   0px -120px; }
+.ulist-title        .ulist-corner-right       { background-position: -10px -120px; }
+.ulist-title-psv    .ulist-corner-left        { background-position: -20px -120px; }
+.ulist-title-psv    .ulist-corner-right       { background-position: -30px -120px; }
+.ulist-item-last    .ulist-corner-left        { background-position: -40px -120px; }
+.ulist-item-last    .ulist-corner-right       { background-position: -50px -120px; }
+.ulist-item-active  .ulist-corner-left        { background-position: -60px -120px; }
+.ulist-item-active  .ulist-corner-right       { background-position: -70px -120px; }
+.yabble             .ulist-corner-left        { background-position: -80px -120px; }
+.yabble             .ulist-corner-right       { background-position: -90px -120px; }
+                    .jform-btn-corner-left    { background-position: -60px -60px;  }
+                    .jform-btn-corner-right   { background-position: -72px -60px;  }
+                    .jform-field-corner-left  { background-position: -60px -20px;  }
+                    .jform-field-corner-right { background-position: -75px -20px;  }
 
 /* End | Corners */
 
@@ -324,10 +370,57 @@ input, textarea {
    ------- IE - FIX -------
    ======================== */
 
+
+/* Some */
+
 .lt-ie8 .jform-title {
     margin-top: 10px;
 }
 
+.lt-ie9 .jform-field-box {
+    position: relative;
+    border: none;
+    padding: 1px;
+}
+
+.lt-ie9 .ulist-corner-left,
+.lt-ie9 .ulist-corner-right,
+.lt-ie9 .jform-btn-corner-left,
+.lt-ie9 .jform-btn-corner-right,
+.lt-ie9 .jform-field-corner-left,
+.lt-ie9 .jform-field-corner-right,
+.lt-ie9 .jform-field-inner-bck {
+    display: block;
+}
+
+/* /Some */
+
+/* jFrom Btn */
+
+.lt-ie9 .jform-btn {
+    position: relative;
+    background: none;
+    padding: 0;
+    z-index: 10;
+}
+
+.lt-ie9 .jform-btn-inner {
+    background: #345372;
+}
+
+.lt-ie9 .jform-btn:hover .jform-btn-inner {
+    background: #2c4966;
+}
+
+.lt-ie9 .jform-btn:hover .jform-btn-corner-left {
+    background-position: -100px -60px;
+}
+
+.lt-ie9 .jform-btn:hover .jform-btn-corner-right {
+    background-position: -112px -60px;
+}
+
+/* /jForm Btn */
 
 /* Yabble */
 
@@ -345,7 +438,19 @@ input, textarea {
     padding: 0 15px 0 0;
 }
 
-/* End | Yabble */
+.lt-ie9 .yabble:hover .yabble-inner {
+    background: #2C4966;
+}
+
+.lt-ie9 .yabble:hover .ulist-corner-left {
+    background-position: -100px -120px;
+}
+
+.lt-ie9 .yabble:hover .ulist-corner-right {
+    background-position: -110px -120px;
+}
+
+/* /Yabble */
 
 /* Title */
 
@@ -361,7 +466,13 @@ input, textarea {
 }
 
 .lt-ie9 .ulist-hidden .ulist-title-inner {
+    background: #FFB540;
+    color: #102A44;
+}
+
+.lt-ie9 .ulist-hidden .ulist-title-psv .ulist-title-inner {
     background: #2C4966;
+    color: #fff;
 }
 
 .lt-ie9 .ulist-icon-arrow {
@@ -372,12 +483,9 @@ input, textarea {
     right: 10px;
 }
 
-/* End | Ttitle */
+/* /Title */
 
-.lt-ie9 .ulist-corner-left,
-.lt-ie9 .ulist-corner-right {
-    display: block;
-}
+/* Ulist: Item Last */
 
 .lt-ie9 .ulist-item-last {
     padding: 0;
@@ -399,6 +507,8 @@ input, textarea {
     display: none;
     margin-top: -38px;
 }
+
+/* /Ulist: Item Last */
 
 /* End | IE - FIX */
 

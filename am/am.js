@@ -106,12 +106,25 @@
 
         function onTitleClick() {
             if ( $el.hasClass( boxHiddenCls ) ) {
+                $title.removeClass( 'ulist-title-psv' );
                 $list.slideDown( 300 );
                 $el.removeClass( boxHiddenCls );
             } else {
-                $list.slideUp( 300 );
-                $el.addClass( boxHiddenCls );
+                listSlideUp();
             }
+        }
+
+        function listSlideUp() {
+            if ( $.support.borderRadius ) {
+                $el.addClass( boxHiddenCls );
+                $list.slideUp( 300 );
+                $title.addClass( 'ulist-title-psv' );
+            } else {
+                $el.addClass( boxHiddenCls );
+                $list.slideUp( 300, function() {
+                    $title.addClass( 'ulist-title-psv' );
+                });
+            }            
         }
 
         function setElWidth( width ) {
