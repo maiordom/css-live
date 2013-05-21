@@ -1,0 +1,21 @@
+                 .ulist-icon-control          { background-position:   0px -80px;  }
+                 .ulist-icon-control-full     { background-position: -20px -80px;  }
+                 .ulist-icon-control-not-full { background-position: -40px -80px;  }
+.ulist-title-psv .ulist-icon-control          { background-position:   0px -100px; }
+.ulist-title-psv .ulist-icon-control-full     { background-position: -20px -100px; }
+.ulist-title-psv .ulist-icon-control-not-full { background-position: -40px -100px; }
+
+.ulist-title        .ulist-corner-left        { background-position:   0px -120px; }
+.ulist-title        .ulist-corner-right       { background-position: -10px -120px; }
+.ulist-title-psv    .ulist-corner-left        { background-position: -20px -120px; }
+.ulist-title-psv    .ulist-corner-right       { background-position: -30px -120px; }
+.ulist-item-last    .ulist-corner-left        { background-position: -40px -120px; }
+.ulist-item-last    .ulist-corner-right       { background-position: -50px -120px; }
+.ulist-item-active  .ulist-corner-left        { background-position: -60px -120px; }
+.ulist-item-active  .ulist-corner-right       { background-position: -70px -120px; }
+.yabble             .ulist-corner-left        { background-position: -80px -120px; }
+.yabble             .ulist-corner-right       { background-position: -90px -120px; }
+                    .jform-btn-corner-left    { background-position: -60px -60px;  }
+                    .jform-btn-corner-right   { background-position: -72px -60px;  }
+                    .jform-field-corner-left  { background-position: -60px -20px;  }
+                    .jform-field-corner-right { background-position: -75px -20px;  }

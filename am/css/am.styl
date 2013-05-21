@@ -1,0 +1,413 @@
+@import 'nib';
+
+/* =====================
+   ------- AM.ru -------
+   ===================== */
+
+sprite   = '../am.png'
+psvColor = #345372
+actColor = #2C4966
+
+*
+    margin: 0
+    padding: 0
+
+.clearfix:before, .clearfix:after
+    display: table
+    content: ""
+
+.clearfix:after
+    clear: both
+
+HTML, BODY
+    width: 100%
+    height: 100%
+
+BODY
+    font: 13px/18px Arial, sans-serif
+
+input, textarea
+    font: 13px/18px Arial, sans-serif
+
+.wrapper
+    padding: 50px 50px 0 50px
+
+/* =====================
+   ------- UList -------
+   ===================== */
+
+.ulist-box
+    padding-bottom: 50px
+    float: left
+
+.ulist    
+    margin-top: 20px
+    display: inline-block
+    color: #fff
+
+.lt-ie8 .ulist
+    display: inline
+    zoom: 1
+
+.ulist:first-child
+    margin-top: 0
+
+.ulist-title
+    height: 38px
+    line-height: 38px
+    padding: 0 40px 0 33px
+    color: #102A44
+    background: #ffb540
+    cursor: pointer
+    position: relative
+    white-space: nowrap
+    border-radius: 10px 10px 0 0
+
+.ulist-hidden .ulist-title
+    background: actColor
+    color: white
+    border-radius: 10px
+    transition: border-radius 0.3s .25s, background 0.3s, color 0.3s
+
+.ulist-list
+    list-style: none
+
+.ulist-item-last
+    border-radius: 0 0 10px 10px
+
+.ulist-item
+    padding: 0 10px 0 10px
+    border-top: 2px solid actColor
+    cursor: pointer
+    line-height: 38px
+    background: psvColor
+    transition: all 0.3s
+
+.ulist-item-inner
+    display: block
+
+.ulist-item-active
+    background: actColor
+
+.ulist-item i
+    float: left
+    margin: 12px 10px 0 0
+    width: 13px
+    height: 13px
+    background: url(sprite) -20px 0 no-repeat
+
+.ulist-item-active.ulist-item i
+    background-position: 0 0
+
+.ulist-hidden .ulist-icon-arrow
+    width: 7px
+    height: 11px
+    left: 13px
+    margin-top: -5px
+    background-position: -20px -20px
+
+.ulist-icon-arrow
+    position: absolute
+    display: block
+    width: 12px
+    height: 7px
+    left: 10px
+    top: 50%
+    margin-top: -3px
+    background: url(sprite) 0 -20px
+
+.ulist-icon-control
+    position: absolute
+    top: 50%
+    margin-top: -9px
+    display: block
+    width: 20px
+    height: 18px
+    right: 10px
+    background-image: url(sprite)
+
+.ulist-item:first-child
+    border-top: none
+
+/* End | Ulist */
+
+/* =============================
+   ------- jForm & Yabble-------
+   ============================= */
+
+.jform
+    float: left
+    width: 400px
+    padding-left: 50px
+
+.jform-field-box
+    display: inline-block
+    border: 1px solid psvColor
+    border-radius: 30px
+
+.lt-ie8 .jform-field-box
+    zoom: 1
+    display: inline
+
+.jform-field
+    float: left
+    margin: 0 4px 0 10px
+    width: 254px
+    outline: none
+    padding: 5px 0 5px 0
+    border: none
+    background: none
+    height: 18px
+
+.jform-btn
+    float: left
+    background: psvColor
+    color: white
+    line-height: 24px
+    padding: 0 10px
+    cursor: pointer
+    margin: 2px 2px 0 0
+    border-radius: 30px
+
+.jform-btn:hover
+    background: actColor
+
+.jform-btn-inner
+    float: left
+
+.jform-field-inner-bck
+    display: none
+    top: 0
+    position: absolute
+    height: 28px
+    left: 15px
+    right: 15px
+    border-top: 1px solid psvColor
+    border-bottom: 1px solid psvColor
+
+.css3-no-placeholder .jform-field
+    color: #b1a9a9
+
+.css3-no-placeholder .jform-field.b-active
+    color: #000
+
+.jform-title
+    margin-top: 6px
+
+.jform-inner
+    margin-top: 10px
+
+.yabble
+    position: relative
+    cursor: pointer
+    color: white
+    display: inline-block
+    height: 28px
+    line-height: 28px
+    padding: 0 25px 0 10px
+    background: psvColor
+    margin: 5px 5px 5px 0
+    white-space: nowrap
+    border-radius: 10px
+
+.yabble:hover
+    background: actColor
+
+.yabble-close
+    position: absolute
+    right: 7px
+    top: 8px
+    width: 13px
+    height: 13px
+    background: url(sprite) -40px -40px
+
+/* End | jForm & Yabble */
+
+/* =======================
+   ------- Corners -------
+   ======================= */
+
+.ulist-title .ulist-corner-left,
+.ulist-title .ulist-corner-right
+    position: absolute
+    top: 0
+
+.ulist-corner-left,
+.ulist-corner-right
+    display: none
+    width: 10px
+    height: 38px
+    background-image: url(sprite)
+
+.ulist-title .ulist-corner-left,
+.jform-field-corner-left
+    left: 0
+
+.ulist-title .ulist-corner-right,
+.jform-field-corner-right
+    right: 0
+
+.ulist-item-last .ulist-corner-left
+    float: left
+
+.yabble .ulist-corner-left,
+.yabble .ulist-corner-right
+    height: 28px
+    float: left
+
+.jform-btn-corner-left,
+.jform-btn-corner-right
+    display: none
+    width: 12px
+    height: 24px
+    background-image: url(sprite)
+
+    float: left
+
+.jform-field-corner-left,
+.jform-field-corner-right
+    display: none
+    width: 15px
+    height: 30px
+    background-image: url(sprite)
+
+    position: absolute
+    top: 0
+    z-index: 1
+
+/* End | Corners */
+
+/* ========================
+   ------- IE - FIX -------
+   ======================== */
+
+
+/* Some */
+
+.lt-ie8 .jform-title
+    margin-top: 10px
+
+.lt-ie9 .jform-field-box
+    position: relative
+    border: none
+    padding: 1px
+
+.lt-ie9
+
+    .ulist-corner-left,
+    .ulist-corner-right,
+    .jform-btn-corner-left,
+    .jform-btn-corner-right,
+    .jform-field-corner-left,
+    .jform-field-corner-right,
+    .jform-field-inner-bck
+        display: block
+
+/* /Some */
+
+/* jFrom Btn */
+
+.lt-ie9
+
+    .jform-btn
+        position: relative
+        background: none
+        padding: 0
+        z-index: 10
+
+    .jform-btn-inner
+        background: psvColor
+
+    .jform-btn:hover .jform-btn-inner
+        background: actColor
+
+    .jform-btn:hover .jform-btn-corner-left
+        background-position: -100px -60px
+
+    .jform-btn:hover .jform-btn-corner-right
+        background-position: -112px -60px
+
+/* /jForm Btn */
+
+/* Yabble */
+
+.ie8 .yabble
+    float: left
+
+.lt-ie9
+
+    .yabble
+        background: none
+        padding: 0
+
+    .yabble-inner
+        float: left
+        background: psvColor
+        padding: 0 15px 0 0
+
+    .yabble:hover .yabble-inner
+        background: actColor
+
+    .yabble:hover .ulist-corner-left
+        background-position: -100px -120px
+
+    .yabble:hover .ulist-corner-right
+        background-position: -110px -120px
+
+/* /Yabble */
+
+/* Title */
+
+.lt-ie9
+
+    .ulist-title
+        background: none
+        padding: 0
+
+    .ulist-title-inner
+        padding: 0 30px 0 23px
+        margin: 0 10px
+        background: #ffb540
+
+    .ulist-hidden .ulist-title-inner
+        background: #FFB540
+        color: #102A44
+
+    .ulist-hidden .ulist-title-psv .ulist-title-inner
+        background: actColor
+        color: #fff
+
+    .ulist-icon-arrow
+        left: 10px
+
+    .ulist-icon-control
+        right: 10px
+
+/* /Title */
+
+/* Ulist: Item Last */
+
+.lt-ie9 
+
+    .ulist-item-last
+        padding: 0
+        background: none
+        width: 100%
+
+    .ulist-item-inner
+        background: psvColor
+        margin: 0 10px
+
+    .ulist-item-active .ulist-item-inner
+        background: actColor
+
+    .ulist-item-last .ulist-corner-right
+        float: right
+        display: none
+        margin-top: -38px
+
+/* /Ulist: Item Last */
+
+/* End | IE - FIX */
+
+/* End | AM.ru */

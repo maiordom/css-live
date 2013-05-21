@@ -227,7 +227,7 @@
         }
 
         function getParams() {
-            var items = selectBox.find( '.yabble' ), params = [];
+            var items = selectBox.find( '.yabble .yabble-inner' ), params = [];
 
             for ( var i = 0, ilen = items.length; i < ilen; i++ ) {
                 params.push( items.eq( i ).text() );
