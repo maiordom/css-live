@@ -24,9 +24,7 @@
         }
 
         function check() {
-            console.log( $items.length );
             $items.filter( '.' + activeItemCls ).each( function() {
-                console.log( $( this ).attr( 'class' ) );
                 var item = $( this ),
                     text = item.text(),
                     id   = item.data( 'id' );
