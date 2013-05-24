@@ -1,0 +1,40 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+HTML, BODY {
+	width: 100%;
+	height: 100%;
+	background: #e9e9e9;
+}
+
+BODY {
+	font: 13px/18px Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+	padding: 50px;
+}
+
+.canvas-box {
+	position: relative;
+	display: inline-block;
+}
+
+.canvas-inner {
+	position: relative;
+	z-index: 2;
+}
+
+.canvas-outer {
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+.canvas-element {
+	position: absolute;
+	z-index: 3;
+}
