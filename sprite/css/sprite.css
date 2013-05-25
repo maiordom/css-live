@@ -1,0 +1,149 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+HTML, BODY {
+    width: 100%;
+    height: 100%;
+}
+
+BODY {
+    font: 13px/18px Arial, Helvetica, sans-serif;
+    background: url(../images/easy.png) repeat
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.canvas-box {
+    float: left;
+    position: relative;
+    margin: 50px 0 0 400px;
+}
+
+.canvas-inner {
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+
+.canvas-outer {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+}
+
+.canvas-element {
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.drag .canvas-element {
+    cursor: move;
+}
+
+.canvas-element-hover {
+    outline: 1px dotted red;
+}
+
+.canvas-element-selected {
+    outline: 1px solid blue;
+}
+
+/* ================================
+   ------- CSS - View - Box -------
+   ================================ */
+
+.css-view-box {
+    font-family: monospace, sans-serif;
+    width: 350px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.css-view-scroll {
+    overflow-y: auto;
+    background: #fff;
+}
+
+.css-element {
+    border-top: 1px solid #c4c4c4;
+    border-right: 1px solid #dadada;
+    background: #f7f7f7; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f7f7f7 0%, #f0f0f0 52%, #e9e9e9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(52%,#f0f0f0), color-stop(100%,#e9e9e9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f7f7f7 0%,#f0f0f0 52%,#e9e9e9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f7f7f7 0%,#f0f0f0 52%,#e9e9e9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f7f7f7 0%,#f0f0f0 52%,#e9e9e9 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f7f7f7 0%,#f0f0f0 52%,#e9e9e9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e9e9e9',GradientType=0 ); /* IE6-9 */
+}
+
+.css-element-hover {
+}
+
+.css-element-select {
+}
+
+.css-element {
+    padding: 5px;
+}
+
+.css-element-title {
+}
+
+.css-element-pair {
+    padding-left: 15px;
+}
+
+.css-element-key {
+    color: #c80000;
+}
+
+.css-element-value {
+}
+
+.css-description {
+    text-align: center;
+    color: white;
+    background: #4cc1ff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4cc1ff 0%, #3c97ff 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4cc1ff), color-stop(99%,#3c97ff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4cc1ff 0%,#3c97ff 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4cc1ff 0%,#3c97ff 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4cc1ff 0%,#3c97ff 99%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4cc1ff 0%,#3c97ff 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cc1ff', endColorstr='#3c97ff',GradientType=0 ); /* IE6-9 */
+}
+
+.css-description-header {
+    font: normal 20px 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 45px;
+    position: relative;
+}
+
+/* End | CSS - View - Box */
