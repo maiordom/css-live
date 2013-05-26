@@ -1,0 +1,3 @@
+RewriteBase /
+RewriteEngine on
+RewriteRule ^api/create_sprite server/create-sprite.php
