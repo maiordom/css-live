@@ -55,7 +55,7 @@ Sprite.View.Document = Backbone.View.extend({
         });
 
         this.panel.on( 'click', '.btn-download', function() {
-        	self.model.createSprite();
+        	self.model.createSprite( self.InnerCanvas.options.width, self.InnerCanvas.options.height );
         });
 
         this.$el.on( 'mousedown', '.canvas-element', function( e ) {

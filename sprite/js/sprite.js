@@ -40,13 +40,35 @@ Sprite.Model.CanvasElement = Backbone.Model.extend({
 
 Sprite.Collection.CanvasElements = Backbone.Collection.extend({
     model: Sprite.Model.CanvasElement,
-    createSprite: function() {
+
+    createSprite: function( w, h ) {
+        var reqData = this.prepareDataToCreateCanvas( w, h );
+
+        $.ajax({
+            data: reqData,
+            url: 'api/create_sprite',
+            method: 'POST',
+            dataType: 'json',
+            success: function( json ) {
+                if ( json.result === 'RESULT_OK' ) {
+                    location.href = 'server/cache/' + json.file + '.png'
+                }
+                console.log( json );
+            }
+        });
+    },
+
+    prepareDataToCreateCanvas: function( canvasWidth, canvasHeight ) {
         var reqData = [], serializedData = [], tmp;
+
         this.each( function( elModel ) {
             tmp = elModel.toJSON();
             delete tmp.fileEntity;
             reqData.push( tmp );
         });
+
+        serializedData.push( 'width='  + canvasWidth );
+        serializedData.push( 'height=' + canvasHeight );
 
         _.each( reqData, function( reqDataItem, index ) {
             _.each( reqDataItem, function( value, key ) {
@@ -54,14 +76,7 @@ Sprite.Collection.CanvasElements = Backbone.Collection.extend({
             });
         });
 
-        $.ajax({
-            data: serializedData.join( '&' ),
-            url: 'api/create_sprite',
-            method: 'POST',
-            success: function( json ) {
-
-            }
-        });
+        return serializedData.join( '&' );
     }
 });
 
