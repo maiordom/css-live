@@ -1,4 +1,5 @@
 Sprite.View.Document = Backbone.View.extend({
+    el: '.canvas-box',
     events: {
         'dragover':  'nullfunc',
         'dragenter': 'nullfunc',
@@ -7,9 +8,6 @@ Sprite.View.Document = Backbone.View.extend({
     },
 
     initialize: function() {
-        this.InnerCanvas = new Sprite.View.CanvasInner();
-        this.OuterCanvas = new Sprite.View.CanvasOuter();
-
         this.cacheObjects();
 
         this.$el.append( this.InnerCanvas.el );
@@ -21,32 +19,44 @@ Sprite.View.Document = Backbone.View.extend({
         this.setCSSScrollParams( 350, this.win.height() - this.cssDesc.height() );
         this.setCSSScrollPane();
 
-        this.setElPosition();
+        this.setElStartPoint();
+        this.setElParams( this.$el.width(), this.$el.height() );        
         this.bindEvents();
     },
 
     cacheObjects: function() {
-        this.win       = $( window );
-        this.doc       = $( document );
-        this.body      = $( 'body' );
-        this.$el       = $( '.canvas-box' );
-        this.cssScroll = $( '.css-view-scroll' );
-        this.cssInner  = $( '.css-view-inner' );
-        this.cssDesc   = $( '.css-description');
-        this.wrapper   = $( '.wrapper' );
-        this.panel     = $( '.panel' );
-        this.sldEl     = $( {} );
-        this.dragObj   = {
-            mouseOffset: {
-                x: null,
-                y: null
-            },
+        this.InnerCanvas  = new Sprite.View.CanvasInner();
+        this.OuterCanvas  = new Sprite.View.CanvasOuter();
+        this.win          = $( window );
+        this.doc          = $( document );
+        this.body         = $( 'body' );
+        this.canvasElZone = $( '.canvas-elements-zone' );
+        this.cssScroll    = $( '.css-view-scroll' );
+        this.cssInner     = $( '.css-view-inner' );
+        this.cssDesc      = $( '.css-description' );
+        this.wrapper      = $( '.wrapper' );
+        this.panel        = $( '.panel' );
+        this.sldEl        = $( {} );
+
+        this.rect = {
+            x: null, y: null, w: null, h: null, xmax: null, ymax: null
+        },
+        this.dragObj = {
+            mouseOffset: { x: null, y: null },
             elModel: null
         };
     },
 
     bindEvents: function() {
         var self = this;
+
+        Sprite.Global.on( 'resize:canvas-box', function( w, h ) {
+            self.setElParams( w, h );
+            self.InnerCanvas.setElParams( w, h );
+            self.OuterCanvas.setElParams( w, h );
+            self.InnerCanvas.render();
+            self.OuterCanvas.render();
+        });
 
         this.win.on( 'resize', _.bind( this.onWinResize, this ) );
 
@@ -55,7 +65,7 @@ Sprite.View.Document = Backbone.View.extend({
         });
 
         this.panel.on( 'click', '.btn-download', function() {
-        	self.model.createSprite( self.InnerCanvas.options.width, self.InnerCanvas.options.height );
+        	Sprite.Collection.CanvasElements.createSprite( self.rect.w, self.rect.h );
         });
 
         this.$el.on( 'mousedown', '.canvas-element', function( e ) {
@@ -78,20 +88,31 @@ Sprite.View.Document = Backbone.View.extend({
         });
     },
 
-    setElPosition: function() {
+    setElStartPoint: function() {
         var rect = this.$el.offset();
+
         this.rect = {
-            x:    rect.left,
-            xmax: rect.left + this.InnerCanvas.options.width,
-            y:    rect.top,
-            ymax: rect.top + this.InnerCanvas.options.height
+            x: rect.left,
+            y: rect.top
         };
+    },
+
+    setElParams: function( w, h ) {
+        this.rect.xmax = this.rect.x + w;
+        this.rect.ymax = this.rect.y  + h;
+        this.rect.w = w;
+        this.rect.h = h;
+
+        this.el.style.width  = w + 'px';
+        this.el.style.height = h + 'px';
+
+        Sprite.Global.set( 'rect', this.rect );
     },
 
     dragEngine: function( el, e ) {
         var modelId = el.data( 'id' );
 
-        this.dragObj.elModel = this.model.get( modelId ),
+        this.dragObj.elModel = Sprite.Collection.CanvasElements.get( modelId ),
         this.dragObj.mouseOffset = {
             x: e.pageX - this.rect.x - this.dragObj.elModel.get( 'x' ),
             y: e.pageY - this.rect.y - this.dragObj.elModel.get( 'y' )
@@ -113,8 +134,8 @@ Sprite.View.Document = Backbone.View.extend({
 
         if ( x < 0 ) x = 0;
         if ( y < 0 ) y = 0;
-        if ( x + elModel.get( 'w' ) > this.InnerCanvas.options.width  ) x = this.InnerCanvas.options.width  - elModel.get( 'w' );
-        if ( y + elModel.get( 'h' ) > this.InnerCanvas.options.height ) y = this.InnerCanvas.options.height - elModel.get( 'h' );
+        if ( x + elModel.get( 'w' ) > rect.w ) x = rect.w - elModel.get( 'w' );
+        if ( y + elModel.get( 'h' ) > rect.h ) y = rect.h - elModel.get( 'h' );
 
         elModel.set( 'x', x );
         elModel.set( 'y', y );
@@ -162,13 +183,13 @@ Sprite.View.Document = Backbone.View.extend({
             canvasElView  = new Sprite.View.CanvasElement( { model: canvasElModel } ),
             cssElView     = new Sprite.View.CSSElement( { model: canvasElModel } );
 
-        this.model.add( canvasElModel );
+        Sprite.Collection.CanvasElements.add( canvasElModel );
 
         canvasElModel.on( 'onloadFile', function() {
             canvasElView.render();
             cssElView.render();
 
-            self.$el.append( canvasElView.el );
+            self.canvasElZone.append( canvasElView.el );
             self.cssInner.append( cssElView.el );
             self.setCSSScrollPane();
         });

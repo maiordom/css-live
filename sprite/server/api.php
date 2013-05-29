@@ -23,7 +23,7 @@ Class Sprite {
         $method = $matches[ 1 ];
 
         switch( $method ) {
-            case 'create_sprite':   { $this->createSpriteHandle(); } break;
+            case 'create_sprite': { $this->createSpriteHandle(); } break;
         }
     }
 
@@ -114,7 +114,7 @@ Class Sprite {
     function createSprite( $IMC, $sprite ) {
         $out = Array();
         $err = -1;
-        exec( $IMC, $out, $err );
+        exec( escapeshellcmd( $IMC ), $out, $err );
     }
 }
 

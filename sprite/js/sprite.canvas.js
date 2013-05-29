@@ -11,6 +11,11 @@ Sprite.View.AbstractCanvas = Backbone.View.extend({
         }
     },
 
+    setElParams: function( w, h ) {
+        this.options.width  = w;
+        this.options.height = h;
+    },
+
     setCanvasParams: function( w, h ) {
         this.el.setAttribute( 'width',  w );
         this.el.setAttribute( 'height', h );
