@@ -6,7 +6,7 @@ HTML, BODY {
   height: 100%; }
 
 BODY {
-  background: url("http://maiordom.github.io/images/css-live/task17.bg.png") repeat; }
+  background: url("http://maiordom.github.io/assets/img/css-live/task17.bg.png") repeat; }
 
 .wrapper {
   padding: 100px 0 0 100px; }
@@ -88,7 +88,7 @@ BODY {
   background: #fff;
   left: 11px;
   top: 12px;
-  background: url("http://maiordom.github.io/images/css-live/task17.sprite.png") no-repeat; }
+  background: url("http://maiordom.github.io/assets/img/css-live/task17.sprite.png") no-repeat; }
 
 .nav-notify {
   float: right;
@@ -138,7 +138,7 @@ BODY {
   height: 6px;
   top: 18px;
   right: 13px;
-  background: url("http://maiordom.github.io/images/css-live/task17.sprite.png") 0 -72px no-repeat; }
+  background: url("http://maiordom.github.io/assets/img/css-live/task17.sprite.png") 0 -72px no-repeat; }
 
 .nav-icon {
   display: inline-block;
@@ -146,7 +146,7 @@ BODY {
   margin: 0 10px 0 11px;
   width: 18px;
   height: 18px;
-  background: url("http://maiordom.github.io/images/css-live/task17.sprite.png") no-repeat;
+  background: url("http://maiordom.github.io/assets/img/css-live/task17.sprite.png") no-repeat;
   margin-top: -2px; }
 
 .nav-item:hover .nav-icon_home:before {

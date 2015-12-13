@@ -7,8 +7,8 @@ BODY, HTML {
   height: 100%;
   }
 
-$background: 'http://maiordom.github.io/images/css-live/dark-hor-menu-bg.png';
-$sprite:     'http://maiordom.github.io/images/css-live/dark-hor-menu-sprite.png';
+$background: 'http://maiordom.github.io/assets/img/css-live/dark-hor-menu-bg.png';
+$sprite:     'http://maiordom.github.io/assets/img/css-live/dark-hor-menu-sprite.png';
 
 @mixin border-radius( $radius ) {
   -webkit-border-radius: $radius;

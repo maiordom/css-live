@@ -6,7 +6,7 @@ BODY, HTML {
   height: 100%; }
 
 BODY {
-  background: url("http://maiordom.github.io/images/css-live/dark-hor-menu-bg.png") repeat; }
+  background: url("http://maiordom.github.io/assets/img/css-live/dark-hor-menu-bg.png") repeat; }
 
 .wrapper {
   padding: 200px;
@@ -123,7 +123,7 @@ BODY {
   position: absolute;
   width: 66px;
   height: 44px;
-  background: url("http://maiordom.github.io/images/css-live/dark-hor-menu-sprite.png") no-repeat; }
+  background: url("http://maiordom.github.io/assets/img/css-live/dark-hor-menu-sprite.png") no-repeat; }
 
 .dark-link_mail:after {
   background-position: 0 0; }
