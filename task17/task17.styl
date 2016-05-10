@@ -1,0 +1,161 @@
+/* =======================
+   ------- Task 17 -------
+   ======================= */
+
+*
+    padding 0
+    margin 0
+
+HTML, BODY
+    width 100%
+    height 100%
+
+BODY
+    background url(/images/task17.bg.png) repeat
+
+.wrapper
+    padding 100px 0 0 100px
+
+/* ------- Nav -------
+   =================== */
+
+.nav
+    display inline-block
+    font 13px Tahoma, sans-serif
+    line-height 40px
+    border 1px solid #25272b
+    overflow hidden
+    border-radius 4px
+    box-shadow 0 1px 2px 0 rgba(0, 0, 0, .3), 0 -1px 0 rgba(26, 26, 26, .15)
+
+.nav-item
+    position relative
+    min-width 198px
+    border-top 1px solid #292b30
+
+.nav-item:first-child
+    border-top none
+
+.nav-item:first-child .nav-link
+    border-radius 4px 4px 0 0
+
+.nav-item:last-child .nav-link
+    border-radius 0 0 4px 4px
+
+.nav-link
+    display block
+    color #d9ddea
+    text-shadow 1px 1px #33353b
+    text-decoration none
+    padding-left 40px
+
+.nav-item > .nav-link
+    background linear-gradient(to bottom, #4c4e58 0%, #3f424a 100%)
+    box-shadow inset 1px 1px 0 0 #5e6169
+
+.nav-link:before
+    content ""
+    position absolute
+    width 18px
+    height 18px
+    left 11px
+    top 11px
+    background-position center
+    background-repeat no-repeat
+    background-size contain
+
+.nav-notify
+    float right
+    position relative
+    margin-right 25px
+
+.nav-notify:after
+    content ""
+    display block
+    position absolute
+    width 5px
+    height 5px
+    top 50%
+    right -10px
+    margin-top -2px
+    border 1px solid #2c2b30
+    background linear-gradient(to bottom, #f49595 0%, #ea3636 100%)
+    border-radius 5px
+    box-shadow 0 0 2px rgba(255, 0, 0, 0.2)
+
+.nav-item-has-sub > .nav-link:after
+    content ""
+    display block
+    position absolute
+    width 11px
+    height 6px
+    top 18px
+    right 13px
+    transition transform 0.2s
+    background url(/images/arrow-down.png) center no-repeat
+    
+.nav-item-has-sub:hover > .nav-link:after
+    transform rotate(180deg)
+    
+.nav-icon_home:before
+    background-image url(/images/home-black.svg)
+
+.nav-item:hover .nav-icon_home:before
+    background-image url(/images/home.svg)
+
+.nav-icon_gallery:before
+    background-image url(/images/gallery-black.svg)
+
+.nav-item:hover .nav-icon_gallery:before
+    background-image url(/images/gallery.svg)
+
+.nav-icon_logout:before
+    background-image url(/images/logout-black.svg)
+
+.nav-item:hover .nav-icon_logout:before
+    background-image url(/images/logout.svg)
+
+.nav-icon_sub:before
+    background-size initial
+    background-image url(/images/point.png)
+
+/* End | Nav */
+
+/* ------- Sub Nav -------
+   ======================= */
+
+.subnav
+    overflow hidden
+    height 0
+    transition height 0.25s linear
+
+.subnav:hover,
+.nav-link:hover ~ .subnav-3-items
+    height 123px
+
+.subnav-item
+    position relative
+    border-top 1px solid #292b30
+
+.subnav-link
+    background linear-gradient(to bottom, #35373d 0%, #313339 100%)
+    box-shadow inset 0 1px 0 0 #3a3c42
+
+.subnav-item:first-child .subnav-link
+    box-shadow inset 0 2px 1px -1px rgba(34, 34, 34, 0.25)
+
+.subnav-item:last-child .subnav-link
+    box-shadow inset 0 -2px 1px -1px rgba(34, 34, 34, 0.3), inset 0 2px 1px -2px rgba(255, 255, 255, 0.25)
+
+.subnav-link:hover
+    background linear-gradient(to bottom, #3a60d1 0%, #2b48c1 100%)
+    box-shadow inset 1px 1px 0 0 #5072d4
+    text-shadow 1px 1px #253d95
+
+.subnav-link:hover.nav-icon_sub:before
+    background-size initial
+    background-image url(/images/point-active.png)
+
+/* End | Sub Nav */
+
+/* End | Task 17 */
