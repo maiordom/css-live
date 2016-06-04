@@ -1,0 +1,128 @@
+/* =======================
+   ------- Counter -------
+   ======================= */
+
+$counter-numbers = './images/counter-numbers.png'
+$counter = './images/counter.png'
+
+HTML, BODY
+    width 100%
+    height 100%
+
+*
+    padding 0
+    margin 0
+
+BODY
+    background #ddd
+
+.clearfix:before,
+.clearfix:after
+    display table
+    content ''
+
+.clearfix:after
+    clear both
+
+/* ------- Reel -------
+   ==================== */
+
+.energy-reel
+    overflow hidden
+    width 137px
+    height 26px
+    position absolute
+    left 69px
+    top 41px
+
+    &__shadow
+        position absolute
+        top 0
+        left 0
+        width 137px
+        height 26px
+        background url($counter) -37px -456px no-repeat
+        z-index 1
+
+    &__numbers
+        float left
+        width 22px
+        height 26px
+        margin-left 1px
+        background url($counter-numbers) 0 -261px repeat-y
+
+    &__numbers_last
+        background-position -22px -261px
+
+    &__numbers:first-child
+        margin-left 0
+
+
+/* End | Reel */
+
+/* ------- Meter -------
+   ===================== */
+
+.energy-meter
+    width 799px
+    margin 0 auto
+    padding-top 100px
+
+    &__item
+        float left
+        width 271px
+
+    &__item_led &__device
+        background-position 0 0
+
+    &__item_lum &__device
+        background-position 0 -210px
+
+    &__device
+        width 271px
+        height 210px
+        background url($counter) no-repeat
+        margin-bottom 25px
+        float left
+        position relative
+
+    &__path
+        position absolute
+        top 122px
+        left 35px
+        width 199px
+        height 22px
+        background url($counter) -37px -434px no-repeat
+        z-index 1
+
+    &__track
+        position absolute
+        width 199px
+        height 22px
+        overflow hidden
+        top 122px
+        left 35px
+        z-index 0
+
+    &__tracker
+        width 35px
+        height 7px
+        position absolute
+        left -35px
+        top 7px
+        z-index 0
+
+    &__item_led &__tracker
+        background #0099cc
+
+    &__item_lum &__tracker
+        background #993399
+
+    &__sign_more
+        margin 71px 110px 0 110px
+        float left
+        width 37px
+        height 68px
+        background url($counter) 0 -420px no-repeat
+
+/* End | Energy */
