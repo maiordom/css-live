@@ -18,7 +18,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('replace-urls', () => {
-    return gulp.src('./task17.css')
+    return gulp.src('./*.css')
         .pipe(postcss([
             css => {
                 css.replaceValues(/\/images/, () => './images');
@@ -28,7 +28,7 @@ gulp.task('replace-urls', () => {
 });
 
 gulp.task('svg-to-base64', () => {
-    return gulp.src('./task17.css')
+    return gulp.src('./*.css')
         .pipe(postcss([
             base64({
                 extensions: ['.svg'],
@@ -40,7 +40,7 @@ gulp.task('svg-to-base64', () => {
 });
 
 gulp.task('png-to-base64', () => {
-    return gulp.src('./task17.css')
+    return gulp.src('./*.css')
         .pipe(postcss([
             base64({
                 extensions: ['.png'],
@@ -52,7 +52,7 @@ gulp.task('png-to-base64', () => {
 });
 
 gulp.task('stylus', () => {
-    return gulp.src('./task17.styl')
+    return gulp.src('./*.styl')
         .pipe(stylus({
             use: [nib()]
         }))

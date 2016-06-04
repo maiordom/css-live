@@ -18,7 +18,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('stylus', () => {
-    return gulp.src('./dark.styl')
+    return gulp.src('./*.styl')
         .pipe(stylus({
             use: [nib()]
         }))
@@ -35,7 +35,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('png-to-base64', () => {
-    return gulp.src('./dark.css')
+    return gulp.src('./*.css')
         .pipe(postcss([
             base64({
                 extensions: ['.png'],
