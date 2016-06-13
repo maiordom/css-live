@@ -69,7 +69,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('css', () => {
-	return runSequence('stylus', 'replace-urls', 'svg-to-base64', 'png-to-base64');
+    return runSequence('stylus', 'replace-urls', 'svg-to-base64', 'png-to-base64');
 });
 
 gulp.task('default', ['server', 'css', 'watch']);

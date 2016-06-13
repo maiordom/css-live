@@ -47,7 +47,7 @@ gulp.task('png-to-base64', () => {
 });
 
 gulp.task('css', () => {
-	return runSequence('stylus', 'png-to-base64');
+    return runSequence('stylus', 'png-to-base64');
 });
 
 gulp.task('default', ['server', 'css', 'watch']);

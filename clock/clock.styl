@@ -1,223 +1,224 @@
 @import 'nib'
 
-paneDuration   = .5s * 1
-paneDelay      = .5s * 1
-shadowDuration = .5s * 1
-shadowDelay    = .3s * 1
-flipPaneBg1    = 'clock.flip-pane-bg.png'
-flipPaneBg2    = 'clock.flip-pane-bg2.png'
+$paneDuration = .5s * 1
+$paneDelay = .5s * 1
+$shadowDuration = .5s * 1
+$shadowDelay = .3s * 1
+$flipPaneBg1 = './images/clock.flip-pane-bg.png'
+$flipPaneBg2 = './images/clock.flip-pane-bg2.png'
 
 HTML, BODY
-    width: 100%
-    height: 100%
+    width 100%
+    height 100%
 
 *
-    margin: 0
-    padding: 0
+    margin 0
+    padding 0
 
 body
-    color: #fff
-    background: #37383d
-    font-family: Arial, sans-serif
-    font-smoothing: antialiased
+    color #fff
+    background #37383d
+    font-family Arial, sans-serif
+    font-smoothing antialiased
 
-#flipclock ul
-    list-style: none
+#flip ul
+    list-style none
 
-#flipclock
-    pointer-events: none
+#flip
+    pointer-events none
 
-.flip-pane
-    position: absolute
-    left: 50%
-    top: 50%
+.flip
+    &__pane
+        position absolute
+        left 50%
+        top 50%
 
-.flip-pane-1
-    width: 808px
-    height: 344px
-    margin: -192px 0 0 -476px
-    z-index: 1
+    &__pane_1
+        width 808px
+        height 344px
+        margin -192px 0 0 -476px
+        z-index 1
 
-.flip-pane-2
-    width: 146px
-    height: 146px
-    margin: 6px 0 0 330px
-    z-index: 2
+    &__pane_2
+        width 146px
+        height 146px
+        margin 6px 0 0 330px
+        z-index 2
 
-.flip-item
-    position: relative
-    float: left
+    &__pane_1 &__item
+        margin-right 20px
+        width 384px
+        height 344px
 
-.flip-pane-1 .flip
-    margin-right: 20px
-    width: 384px
-    height: 344px
+    &__pane_2 &__item
+        width 146px
+        height 146px
 
-.flip-pane-2 .flip
-    width: 146px
-    height: 146px
+    &__item
+        position relative
+        float left
 
-.flip li
-    z-index: 1
-    position: absolute
-    left: 0
-    top: 0
-    width: 100%
-    height: 100%
+        li
+            z-index 1
+            position absolute
+            left 0
+            top 0
+            width 100%
+            height 100%
 
-.flip li:first-child
-    z-index: 2
+        li:first-child
+            z-index 2
 
-.flip li span
-    display: block
-    height: 100%
-    perspective: 900px
+        li span
+            display block
+            height 100%
+            perspective 900px
 
-.flip-pane div
-    z-index: 1
-    position: absolute
-    left: 0
-    width: 100%
-    overflow: hidden
+    &__pane div
+        z-index 1
+        position absolute
+        left 0
+        width 100%
+        overflow hidden
 
-.flip-pane-1 div
-    height: 170px
+    &__pane_1 div
+        height 170px
 
-.flip-pane-2 div
-    height: 72px
+    &__pane_2 div
+        height 72px
 
-.flip-pane .flip-shadow
-    position: absolute
-    width: 100%
-    height: 100%
-    z-index: 2
+    &__pane &__shadow
+        position absolute
+        width 100%
+        height 100%
+        z-index 2
 
-.flip-up
-    transform-origin: 50% 100%
-    backface-visibility: hidden
-    top: 0
+    &__up
+        transform-origin 50% 100%
+        backface-visibility hidden
+        top 0
 
-.flip-down
-    transform-origin: 50% 0%
-    backface-visibility: hidden
-    bottom: 0
+    &__down
+        transform-origin 50% 0%
+        backface-visibility hidden
+        bottom 0
 
-.flip-pane-1 .flip-text,
-.flip-pane-2 .flip-text
-    position: absolute
-    left: 0
-    z-index: 1
-    width: 100%
-    height: 200%
-    font-weight: 700
-    color: #b7b7b7
-    text-align: center
-    border-radius: 16px
+    &__pane_1 &__text,
+    &__pane_2 &__text
+        position absolute
+        left 0
+        z-index 1
+        width 100%
+        height 200%
+        font-weight 700
+        color #b7b7b7
+        text-align center
+        border-radius 16px
 
-.flip-pane-1 .flip-text
-    font-size: 300px
-    line-height: 340px
-    background: url(flipPaneBg1) repeat-x
+    &__pane_1 &__text
+        font-size 300px
+        line-height 340px
+        background url($flipPaneBg1) repeat-x
 
-.flip-pane-2 .flip-text
-    font-size: 110px
-    line-height: 147px
-    background: url(flipPaneBg2) repeat-x
+    &__pane_2 &__text
+        font-size 110px
+        line-height 147px
+        background url($flipPaneBg2) repeat-x
 
-.flip-pane .flip-apm
-    position: absolute
-    left: 22px
-    bottom: 10px
-    z-index: 90
-    width: 50px
-    height: 40px
-    font-weight: 700
-    font-size: 32px
-    line-height: 32px
-    color: #b7b7b7
-    text-align: left
+    &__pane &__apm
+        position absolute
+        left 22px
+        bottom 10px
+        z-index 90
+        width 50px
+        height 40px
+        font-weight 700
+        font-size 32px
+        line-height 32px
+        color #b7b7b7
+        text-align left
 
-.flip-up .flip-text
-    top: 0
+    &__up &__text
+        top 0
 
-.flip-down .flip-text
-    bottom: 0
+    &__down &__text
+        bottom 0
 
-#flipclock .before
-    z-index: 3
+#flip .before
+    z-index 3
 
-#flipclock .active
-    animation: flip-ani-index paneDuration paneDelay linear both
-    z-index: 2
+#flip .active
+    animation flip-index-ani $paneDuration $paneDelay linear both
+    z-index 2
 
-@keyframes flip-ani-index
+#flip .active .flip__down
+    z-index 2
+    animation flip-up-ani $paneDuration $paneDelay linear both
+
+#flip .before .flip__up
+    z-index 2
+    animation flip-down-ani $paneDuration cubic-bezier(0.470, 0.000, 0.745, 0.715) both
+
+#flip .before .flip__up .flip__shadow
+    background linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)
+    animation show-ani $shadowDuration linear both
+
+#flip .before .flip__down .flip__shadow
+    background linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)
+    animation show-ani $shadowDuration linear both
+
+#flip .active .flip__up .flip__shadow
+    background linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)
+    animation hide-ani $shadowDuration $shadowDelay linear both
+
+#flip .active .flip__down .flip__shadow
+    background linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)
+    animation hide-ani $shadowDuration $shadowDelay linear both
+
+@keyframes flip-index-ani
     0%
-        z-index: 2
+        z-index 2
 
     5%
-        z-index: 4
+        z-index 4
 
     100%
-        z-index: 4
+        z-index 4
 
-#flipclock .active .flip-down
-    z-index: 2
-    animation: flip-ani-up paneDuration paneDelay linear both
-
-@keyframes flip-ani-up
+@keyframes flip-up-ani
     0%
-        transform: rotateX(90deg)
+        transform rotateX(90deg)
 
     60%
-        transform: rotateX(0deg)
+        transform rotateX(0deg)
 
     80%
-        transform: rotateX(20deg)
+        transform rotateX(20deg)
 
     100%
-        transform: rotateX(0deg)
+        transform rotateX(0deg)
 
-#flipclock .before .flip-up
-    z-index: 2
-    animation: flip-ani-down paneDuration cubic-bezier(0.470, 0.000, 0.745, 0.715) both
-
-@keyframes flip-ani-down
+@keyframes flip-down-ani
     0%
-        transform: rotateX(0deg)
-        opacity: 1
+        transform rotateX(0deg)
+        opacity 1
 
     99%
-        opacity: 1
+        opacity 1
     100%
-        opacity: 0
-        transform: rotateX(-90deg)
+        opacity 0
+        transform rotateX(-90deg)
 
-#flipclock .before .flip-up .flip-shadow
-    background: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)
-    animation: show shadowDuration linear both
-
-#flipclock .before .flip-down .flip-shadow
-    background: linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)
-    animation: show shadowDuration linear both
-
-#flipclock .active .flip-up .flip-shadow
-    background: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)
-    animation: hide shadowDuration shadowDelay linear both
-
-#flipclock .active .flip-down .flip-shadow
-    background: linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)
-    animation: hide shadowDuration shadowDelay linear both
-
-@keyframes show
+@keyframes show-ani
     0%
-        opacity: 0
+        opacity 0
 
     100%
-        opacity: 1
+        opacity 1
 
-@keyframes hide
+@keyframes hide-ani
     0%
-        opacity: 1
+        opacity 1
 
     100%
-        opacity: 0
+        opacity 0

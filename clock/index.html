@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+
+<body>
+
+    <div id="flip">
+
+        <div class="flip__pane flip__pane_1">
+
+            <ul class="flip__item flip__hour">
+                <li class="before">
+                    <span>
+                        <div class="flip__up">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                        <div class="flip__down">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                            <div class="flip__apm">AM</div>
+                        </div>
+                    </span>
+                </li>
+                <li class="active">
+                    <span>
+                        <div class="flip__up">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                        <div class="flip__down">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                            <div class="flip__apm">PM</div>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+
+            <ul class="flip__item flip__minute">
+                <li class="before">
+                    <span>
+                        <div class="flip__up">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                        <div class="flip__down">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                    </span>
+                </li>
+                <li class="active">
+                    <span>
+                        <div class="flip__up">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                        <div class="flip__down">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="flip__pane flip__pane_2">
+
+            <ul class="flip__item flip__second">
+                <li class="before">
+                    <span>
+                        <div class="flip__up">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                        <div class="flip__down">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                    </span>
+                </li>
+                <li class="active">
+                    <span>
+                        <div class="flip__up">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                        <div class="flip__down">
+                            <div class="flip__shadow"></div>
+                            <div class="flip__text">00</div>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="clock.js"></script>
+    <script>
+        (function() {
+            var flipClock = new FlipClock();
+            flipClock.init();
+            flipClock.start();
+        })();
+    </script>
+    
+</body>
+
+</html>
